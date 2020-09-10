@@ -10,14 +10,13 @@
     android:padding="20dp">
 
     <ImageView
-        android:id="@+id/logo_image"
+        android:id="@+id/logo_image_teacher"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:transitionName="logo_image"
-        android:src="@drawable/logo"/>
+        android:src="@drawable/logo" />
 
     <TextView
-        android:id="@+id/logo_name"
+        android:id="@+id/logo_name_teacher"
         android:layout_width="370dp"
         android:layout_height="108dp"
         android:fontFamily="sans-serif-black"
@@ -26,7 +25,7 @@
         android:textSize="40sp"
         android:transitionName="logo_text" />
     <TextView
-        android:id="@+id/slogan_name"
+        android:id="@+id/slogan_name_teacher"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sign In to continue"
@@ -42,7 +41,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/username"
+            android:id="@+id/username_teacher"
             android:hint="Username"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
@@ -54,7 +53,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/password"
+            android:id="@+id/password_teacher"
             android:hint="Password"
             app:passwordToggleEnabled="true"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -72,26 +71,19 @@
             android:layout_margin="5dp"
             android:background="#00000000"
             android:elevation="0dp"
+            android:id="@+id/forgot_teacher"
             android:text="Forget Password?" />
 
         <Button
+            android:id="@+id/signin_teacher"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="SIGN IN"
-            android:background="#000"
-            android:textColor="#fff"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"/>
+            android:layout_marginBottom="5dp"
+            android:background="#000"
+            android:text="LOG IN"
+            android:textColor="#fff" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_margin="5dp"
-            android:background="#00000000"
-            android:elevation="0dp"
-            android:text="New User? SIGN UP"
-            android:textColor="#000"/>
 
     </LinearLayout>
 </LinearLayout>

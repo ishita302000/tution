@@ -25,8 +25,7 @@ public class MainActivity extends AppCompatActivity {
         teacherimage = (ImageView) findViewById(R.id.teacherImage);
         childerenimage = (ImageView) findViewById(R.id.childrenImage);
         parentimage = (ImageView) findViewById(R.id.parentImage);
-        image = (ImageView) findViewById(R.id.logo_image);
-        text = (TextView) findViewById(R.id.logo_name);
+
 
        teacherimage.setOnClickListener(new View.OnClickListener() {
            @Override

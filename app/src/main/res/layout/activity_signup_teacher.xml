@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Signup_teacher"
+    android:orientation="vertical"
+    android:background="#fff"
+    android:padding="20dp">
+
+    <ImageView
+        android:id="@+id/Sign_logo_image_teacher"
+        android:layout_width="132dp"
+        android:layout_height="122dp"
+        android:src="@drawable/logo"
+        android:transitionName="logo_image" />
+
+    <TextView
+        android:id="@+id/Sign_logo_name_teacher"
+        android:layout_width="215dp"
+        android:layout_height="54dp"
+        android:fontFamily="sans-serif-black"
+        android:text="WELCOME,"
+        android:textColor="#000"
+        android:textSize="40sp"
+        android:transitionName="logo_text" />
+    <TextView
+        android:id="@+id/Sign_logan_name_teacher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Let's SignUp your Account "
+        android:textSize="18sp"/>
+
+    <RelativeLayout
+        android:layout_width="376dp"
+        android:layout_height="434dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="35dp"
+        android:orientation="vertical">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="369dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/signn_fullname_teacher"
+            android:hint="Full Name" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="307dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/signn_username_teacher"
+            android:hint="UserName" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="240dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="Email"
+            android:id="@+id/sign_email_teacher"/>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="175dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/sign_phn_teacher"
+            android:hint="Phone no." />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="115dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/sign_password_teacher"
+            android:hint="Password" />
+
+
+        <Button
+            android:id="@+id/signup_teacher"
+            android:layout_width="match_parent"
+            android:layout_height="61dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="50dp"
+            android:background="#000"
+            android:text="SIGN UP"
+            android:textColor="#fff" />
+
+        <Button
+            android:id="@+id/Login_text_sigin_teacher"
+            android:layout_width="match_parent"
+            android:layout_height="51dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="right"
+            android:layout_marginEnd="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="0dp"
+            android:background="#00000000"
+            android:elevation="0dp"
+            android:text="ALREADY HAVE AN ACCOUNT? LOGIN"
+            android:textColor="#000" />
+    </RelativeLayout>
+
+</LinearLayout>
+
+
+
