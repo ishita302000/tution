@@ -1,15 +1,14 @@
 package com.example.client;
 
 public class UserHelperClass_teacher {
-   String teacher_name,  teacher_username, teacher_email,  teacher_phoneNo,  teacher_password ;
+   String teacher_name,  teacher_email,  teacher_phoneNo,  teacher_password ;
 
     public UserHelperClass_teacher() {
 
     }
 
-    public UserHelperClass_teacher(String teacher_name, String teacher_username, String teacher_email, String teacher_phoneNo, String teacher_password) {
+    public UserHelperClass_teacher(String teacher_name, String teacher_email, String teacher_phoneNo, String teacher_password) {
         this.teacher_name = teacher_name;
-        this.teacher_username = teacher_username;
         this.teacher_email = teacher_email;
         this.teacher_phoneNo = teacher_phoneNo;
         this.teacher_password = teacher_password;
@@ -23,13 +22,9 @@ public class UserHelperClass_teacher {
         this.teacher_name = teacher_name;
     }
 
-    public String getTeacher_username() {
-        return teacher_username;
-    }
 
-    public void setTeacher_username(String teacher_username) {
-        this.teacher_username = teacher_username;
-    }
+
+
 
     public String getTeacher_email() {
         return teacher_email;

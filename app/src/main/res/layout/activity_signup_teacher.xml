@@ -50,49 +50,48 @@
             android:hint="Full Name" />
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/sign_email_teacher"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="64dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="307dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:id="@+id/signn_username_teacher"
-            android:hint="UserName" />
+            android:layout_marginEnd="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="301dp"
+            android:hint="Email" />
 
         <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="240dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="Email"
-            android:id="@+id/sign_email_teacher"/>
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="175dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:id="@+id/sign_phn_teacher"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="234dp"
             android:hint="Phone no." />
 
+
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/sign_password_teacher"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="115dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:id="@+id/sign_password_teacher"
+            android:layout_marginBottom="164dp"
             android:hint="Password" />
-
 
         <Button
             android:id="@+id/signup_teacher"
             android:layout_width="match_parent"
             android:layout_height="61dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="50dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="103dp"
             android:background="#000"
             android:text="SIGN UP"
             android:textColor="#fff" />
@@ -107,7 +106,7 @@
             android:layout_gravity="right"
             android:layout_marginEnd="0dp"
             android:layout_marginRight="0dp"
-            android:layout_marginBottom="0dp"
+            android:layout_marginBottom="49dp"
             android:background="#00000000"
             android:elevation="0dp"
             android:text="ALREADY HAVE AN ACCOUNT? LOGIN"

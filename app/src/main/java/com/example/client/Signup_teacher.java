@@ -39,7 +39,7 @@ public class Signup_teacher extends AppCompatActivity {
         setContentView(R.layout.activity_signup_teacher);
 
         teacher_regName = findViewById(R.id.signn_fullname_teacher);
-        teacher_regUsserName = findViewById(R.id.signn_username_teacher);
+        //teacher_regUsserName = findViewById(R.id.signn_username_teacher);
         teacher_regEmail = findViewById(R.id.sign_email_teacher);
         teacher_Phone = findViewById(R.id.sign_phn_teacher);
         teacher_regpassword = findViewById(R.id.sign_password_teacher);
@@ -58,13 +58,13 @@ public class Signup_teacher extends AppCompatActivity {
 
 
              final String   teacher_name = teacher_regName.getEditableText().toString();
-             final String  teacher_username = teacher_regUsserName.getEditableText().toString();
+            // final String  teacher_username = teacher_regUsserName.getEditableText().toString();
              final String teacher_email = teacher_regEmail.getEditableText().toString();
              final String teacher_phoneNo = teacher_Phone.getEditableText().toString();
              final String  teacher_password = teacher_regpassword.getEditableText().toString();
 
-             UserHelperClass_teacher helperClass_teacher = new UserHelperClass_teacher(  teacher_name , teacher_username , teacher_email , teacher_phoneNo , teacher_password);
-                fAuth.createUserWithEmailAndPassword(teacher_username,teacher_password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+             UserHelperClass_teacher helperClass_teacher = new UserHelperClass_teacher(  teacher_name , teacher_email , teacher_phoneNo , teacher_password);
+                fAuth.createUserWithEmailAndPassword(teacher_email,teacher_password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
@@ -74,7 +74,6 @@ public class Signup_teacher extends AppCompatActivity {
                             DocumentReference documentReference=fstore.collection("users").document(userId_techer);
                             Map<String,Object> user=new HashMap<>();
                             user.put("name",teacher_name);
-                            user.put("username",teacher_username);
                             user.put("E-mail",teacher_email);
                             user.put("PhoneNo",teacher_phoneNo);
                             documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -84,6 +83,7 @@ public class Signup_teacher extends AppCompatActivity {
                                 }
                             });
                             startActivity(new Intent(getApplicationContext(),LoginTeacher.class));
+                            finish();
                         }else{
                             Toast.makeText(Signup_teacher.this,"Error !"+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
                            // mProgressBar2.setVisibility(View.GONE);
@@ -93,4 +93,5 @@ public class Signup_teacher extends AppCompatActivity {
             }
         });
     }
+
 }
