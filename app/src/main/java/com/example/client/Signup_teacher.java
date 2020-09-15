@@ -97,6 +97,7 @@ public class Signup_teacher extends AppCompatActivity {
                                 user.put("name", teacher_name);
                                 user.put("E-mail", teacher_email);
                                 user.put("PhoneNo", teacher_phoneNo);
+                                u=1;
                                 documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void aVoid) {
