@@ -41,19 +41,20 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/username_teacher"
+
             android:hint="Email"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
+                android:id="@+id/email_log_teacher"
                 android:layout_height="wrap_content"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/password_teacher"
+
             android:hint="Password"
             app:passwordToggleEnabled="true"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -61,6 +62,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/password_log_teacher"
                 android:inputType="textPassword"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -75,7 +77,7 @@
             android:text="Forget Password?" />
 
         <Button
-            android:id="@+id/signin_teacher"
+            android:id="@+id/login_teacher"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -85,7 +87,7 @@
             android:textColor="#fff" />
 
         <TextView
-            android:id="@+id/phnno_teacher"
+            android:id="@+id/phnno_log_teacher"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Login with phn no."
