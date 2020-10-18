@@ -33,8 +33,8 @@ import java.util.concurrent.TimeUnit;
 
 public class Signup_parent extends AppCompatActivity {
 
-    TextInputEditText teacher_regName, teacher_regEmail, teacher_Phone, teacher_regpassword;
-    Button teacher_regbtn, teacher_regtoLoginBtn;
+    TextInputEditText parent_regName, parent_regEmail, parent_Phone, parent_regpassword,parent_fullname;
+    Button parent_regbtn, parent_regtoLoginBtn;
     private FirebaseAuth fAuth;
     private FirebaseFirestore fstore;
     private String userId_techer;
@@ -54,50 +54,50 @@ public class Signup_parent extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup_teacher);
-
-        teacher_regName = findViewById(R.id.signn_fullname_teacher);
+        setContentView(R.layout.activity_signup_parent);
+        parent_fullname=findViewById(R.id.signn_fullname_parent);
+        parent_regName = findViewById(R.id.signn_username_parent);
         //teacher_regUsserName = findViewById(R.id.signn_username_teacher);
-        teacher_regEmail = findViewById(R.id.sign_email_teacher);
-        teacher_Phone = findViewById(R.id.sign_phn_teacher);
-        teacher_regpassword = findViewById(R.id.sign_password_teacher);
-        teacher_regbtn = findViewById(R.id.signup_teacher);
-        teacher_regtoLoginBtn = findViewById(R.id.Login_text_sigin_teacher);
-        enterotp = findViewById(R.id.sign_otp_teacher);
+        parent_regEmail = findViewById(R.id.Sign_email_parent);
+        parent_Phone = findViewById(R.id.sign_phn_parent);
+        parent_regpassword = findViewById(R.id.sign_password_parent);
+        parent_regbtn = findViewById(R.id.signup_parent);
+        parent_regtoLoginBtn = findViewById(R.id.login_text_sigin_parent);
+        enterotp = findViewById(R.id.sign_otp_parent);
         fAuth = FirebaseAuth.getInstance();
         fstore = FirebaseFirestore.getInstance();
         if (fAuth.getCurrentUser() != null) {
             startActivity(new Intent(getApplicationContext(), LoginTeacher.class));
             finish();
         }
-        teacher_regbtn.setOnClickListener(new View.OnClickListener() {
+        parent_regbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 if (u == 0) {
 
-                    final String teacher_name = teacher_regName.getEditableText().toString();
+                    final String parent_name = parent_regName.getEditableText().toString();
                     // final String  teacher_username = teacher_regUsserName.getEditableText().toString();
-                    final String teacher_email = teacher_regEmail.getEditableText().toString();
-                    final String teacher_phoneNo = teacher_Phone.getEditableText().toString();
-                    final String teacher_password = teacher_regpassword.getEditableText().toString();
-                    name_t=teacher_name;
-                    email_t= teacher_email;
-                    phpne_t=teacher_phoneNo;
+                    final String parent_email = parent_regEmail.getEditableText().toString();
+                    final String parent_phoneNo = parent_Phone.getEditableText().toString();
+                    final String parent_password = parent_regpassword.getEditableText().toString();
+                    name_t=parent_name;
+                    email_t= parent_email;
+                    phpne_t=parent_phoneNo;
 
-                    UserHelperClass_teacher helperClass_teacher = new UserHelperClass_teacher(teacher_name, teacher_email, teacher_phoneNo, teacher_password);
-                    fAuth.createUserWithEmailAndPassword(teacher_email, teacher_password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    UserHelperClass_parent helperClass_parent = new UserHelperClass_parent(parent_name, parent_email, parent_phoneNo, parent_password);
+                    fAuth.createUserWithEmailAndPassword(parent_email, parent_password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 Toast.makeText(Signup_parent.this, "user created", Toast.LENGTH_SHORT).show();
                                 //putting other data like name ,email etc into the fire base collection name users
                                 userId_techer = fAuth.getCurrentUser().getUid();
-                                DocumentReference documentReference = fstore.collection("users").document(userId_techer);
+                                DocumentReference documentReference = fstore.collection("usersParent").document(userId_techer);
                                 Map<String, Object> user = new HashMap<>();
-                                user.put("name", teacher_name);
-                                user.put("E-mail", teacher_email);
-                                user.put("PhoneNo", teacher_phoneNo);
+                                user.put("name", parent_name);
+                                user.put("E-mail", parent_email);
+                                user.put("PhoneNo", parent_phoneNo);
                                 u=1;
                                 documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
@@ -106,7 +106,7 @@ public class Signup_parent extends AppCompatActivity {
                                         //. Log.i("info","on success:user  profile is created"+userId);
                                         FirebaseAuth.getInstance().signOut();
 
-                                        String phonrnumber = "+91" + teacher_phoneNo;
+                                        String phonrnumber = "+91" + parent_phoneNo;
                                         requestOTP(phonrnumber);
                                     }
 
@@ -131,7 +131,7 @@ public class Signup_parent extends AppCompatActivity {
                         abc();
                         // verificationInprogress=false;
                     } else {
-                        teacher_Phone.setError("valid otp is required");
+                        parent_Phone.setError("valid otp is required");
                     }
                 }
 
@@ -200,6 +200,6 @@ public class Signup_parent extends AppCompatActivity {
     }
 
     public void abc() {
-        startActivity(new Intent(this,LoginTeacher.class));
+        startActivity(new Intent(this,LoginParent.class));
     }
 }

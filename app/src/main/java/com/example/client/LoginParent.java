@@ -1,5 +1,6 @@
 package com.example.client;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -7,19 +8,63 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginParent extends AppCompatActivity {
      private TextView signupFor_parent;
+    private TextInputEditText email_login_parent;
+    private TextInputEditText password_login_parent;
+    private Button forgetPassword_parent;
+    private TextView login_phnno_parent;
+    private Button parent_login;
+    private FirebaseAuth fAuth;
+    private  TextView loginphn;
+    private Button ForgetPassword_parent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_parent);
         //initialized the instance variables
         signupFor_parent=findViewById(R.id.slogan_name_parent);
+        email_login_parent= findViewById(R.id.email_log_parent);
+        password_login_parent=findViewById(R.id.password_log_parent);
+        forgetPassword_parent = findViewById(R.id.forgot_parent);
+        //login_phnno_parent=findViewById(R.id.phnno_log_parent);
+        parent_login = findViewById(R.id.signin_parent);
+        //loginphn = findViewById(R.id.phnno_log_teacher);
+        fAuth=FirebaseAuth.getInstance();
         signupFor_parent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 takeTosignupPageForteachers();
+            }
+        });
+
+        parent_login.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                String email_login=email_login_parent.getText().toString().trim();
+                String password_login=password_login_parent.getText().toString().trim();
+                fAuth.signInWithEmailAndPassword(email_login,password_login).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+
+                            Toast.makeText(LoginParent.this,"Loggid in successfully",Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(),form_teacher.class));
+                        }else{
+                            Toast.makeText(LoginParent.this,"Error !"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+
+                        }
+                    }
+                });
             }
         });
     }

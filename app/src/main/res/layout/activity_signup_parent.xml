@@ -96,6 +96,16 @@
             android:text="SIGN UP"
             android:textColor="#fff" />
 
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/sign_otp_parent"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="115dp"
+            android:hint="Enter OTP"
+            android:visibility="invisible"/>
+
         <Button
             android:id="@+id/login_text_sigin_parent"
             android:layout_width="match_parent"
