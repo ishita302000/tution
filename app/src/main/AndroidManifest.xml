@@ -13,7 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".phn_parent"></activity>
+        <activity android:name=".upload_teacher"></activity>
+        <activity android:name=".Qualification_teacher" />
+        <activity android:name=".professional_teacher" />
         <activity android:name=".persnal_details_teacher" />
         <activity android:name=".forgetpass_teacher" />
         <activity android:name=".form_teacher" />

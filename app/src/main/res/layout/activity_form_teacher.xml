@@ -6,18 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".form_teacher">
 
-    <Button
-        android:id="@+id/button_form_logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.91"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
-
 
     <TextView
         android:id="@+id/Sign_logan_name_teacher"
@@ -63,6 +51,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.686" />
+
+    <Button
+        android:id="@+id/button_next_teacher"
+        android:layout_width="322dp"
+        android:layout_height="58dp"
+        android:background="#FDC314"
+        android:text="Next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        
+
+
+
+
+
+
+
+
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.832" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
