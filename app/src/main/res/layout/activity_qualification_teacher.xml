@@ -4,25 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".persnal_details_teacher">
+    tools:context=".Qualification_teacher">
 
     <TextView
-        android:id="@+id/persnal_heading"
-        android:layout_width="381dp"
-        android:layout_height="63dp"
+        android:id="@+id/pprofessional"
+        android:layout_width="410dp"
+        android:layout_height="59dp"
         android:fontFamily="@font/amaranth"
-        android:text="Persnal Details"
-        android:textColor="#0B0A0A"
-        android:textSize="40sp"
+        android:text=" Acadmic details"
+        android:textColor="#121111"
+        android:textSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.02" />
+        app:layout_constraintVertical_bias="0.044" />
 
     <LinearLayout
-        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -31,17 +30,33 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.482">
+        app:layout_constraintVertical_bias="0.487"
+        tools:ignore="MissingConstraints">
+
+
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
 
             android:layout_height="wrap_content"
-            android:hint="Name">
+            android:hint="Board of class 12th">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/phn__login_teacher"
+                android:id="@+id/boardcbsc_teacher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="DuplicateIds" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:hint=" Graduation">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/graduation_teacher"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -51,10 +66,58 @@
             android:layout_width="match_parent"
 
             android:layout_height="wrap_content"
-            android:hint="Age">
+            android:hint="Year of graduation">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/age_teacher"
+                android:id="@+id/your_graduation_teacher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:hint="Post Graduation(M.Phil/Ph.D..,etc)">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/post_graduationteacher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:hint="Subject Specialisation">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/subject_specialisation_teacher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:hint="Name of the Institution">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/name_institution_teacher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:hint="Any other degree">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/chosee_teacher"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -64,96 +127,39 @@
             android:layout_width="match_parent"
 
             android:layout_height="wrap_content"
-            android:hint="Gender">
+            android:hint="Language Known">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/Gender_teacher"
+                android:id="@+id/lang_known_teacher"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
-
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
 
             android:layout_height="wrap_content"
-            android:hint="Martial Status">
+            android:hint="Interested field">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/_teacher"
+                android:id="@+id/interested_field_teacher"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-
-            android:layout_height="wrap_content"
-            android:hint="E-maid ID">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/Email_teacher"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-
-            android:layout_height="wrap_content"
-            android:hint="Date of Birth">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/Birth_teacher"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-
-            android:layout_height="wrap_content"
-            android:hint="Contact no.">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/contact_teacher"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-
-            android:layout_height="96dp"
-            android:hint="Address">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/address_teacher"
-                android:layout_width="match_parent"
-                android:layout_height="96dp" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-
     </LinearLayout>
 
     <Button
-        android:id="@+id/persnal_teacher_button"
+        android:id="@+id/Qualification_teacher"
         android:layout_width="376dp"
         android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:background="#FDC20F"
-        android:text="Button"
+        android:text="Next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
-
+        app:layout_constraintVertical_bias="0.954" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

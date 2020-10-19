@@ -4,25 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".persnal_details_teacher">
+    tools:context=".professional_teacher">
 
     <TextView
-        android:id="@+id/persnal_heading"
-        android:layout_width="381dp"
-        android:layout_height="63dp"
+        android:id="@+id/pprofessional"
+        android:layout_width="410dp"
+        android:layout_height="59dp"
         android:fontFamily="@font/amaranth"
-        android:text="Persnal Details"
-        android:textColor="#0B0A0A"
-        android:textSize="40sp"
+        android:text=" Professional details"
+        android:textColor="#121111"
+        android:textSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.02" />
+        app:layout_constraintVertical_bias="0.023" />
 
     <LinearLayout
-        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -31,129 +30,137 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.482">
+        app:layout_constraintVertical_bias="0.487"
+        tools:ignore="MissingConstraints">
+
+
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
 
             android:layout_height="wrap_content"
-            android:hint="Name">
+            android:hint="Total work experince in Teaching">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/phn__login_teacher"
+                android:id="@+id/work_experince_teaching_teacher"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
-
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
 
             android:layout_height="wrap_content"
-            android:hint="Age">
+            android:hint="Work Experince in any other ">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/age_teacher"
+                android:id="@+id/any_other_teaching_teacher"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
-
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
 
             android:layout_height="wrap_content"
-            android:hint="Gender">
+            android:hint="Your strengths">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/Gender_teacher"
+                android:id="@+id/your_strengths_teacher"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
-
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
 
             android:layout_height="wrap_content"
-            android:hint="Martial Status">
+            android:hint="Classes you can teach ">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/_teacher"
+                android:id="@+id/classes_teach_teacher"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
-
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
 
             android:layout_height="wrap_content"
-            android:hint="E-maid ID">
+            android:hint="Which board will you prefer for teaching ">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/Email_teacher"
+                android:id="@+id/board_teacher"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
-
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
 
             android:layout_height="wrap_content"
-            android:hint="Date of Birth">
+            android:hint="Your preferable teaching area">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/Birth_teacher"
+                android:id="@+id/chosee_teacher"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
-
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
 
             android:layout_height="wrap_content"
-            android:hint="Contact no.">
+            android:hint="Subjects you can teach">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/contact_teacher"
+                android:id="@+id/can_teach_teacher"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
-
-
-
-
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
 
-            android:layout_height="96dp"
-            android:hint="Address">
+            android:layout_height="wrap_content"
+            android:hint=" Preferable Teaching Language">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/address_teacher"
+                android:id="@+id/lang_teacher"
                 android:layout_width="match_parent"
-                android:layout_height="96dp" />
+                android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:hint="Timimgs">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/timing_teacher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
 
 
     </LinearLayout>
 
     <Button
-        android:id="@+id/persnal_teacher_button"
+        android:id="@+id/pprofessional_next"
         android:layout_width="376dp"
         android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:background="#FDC20F"
-        android:text="Button"
+        android:text="Next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976" />
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>
+

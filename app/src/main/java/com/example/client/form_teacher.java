@@ -29,11 +29,10 @@ public class form_teacher extends AppCompatActivity {
              public void onClick(View v) {
                String filename = "photo_teacher";
                File storageDirectory = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-                 try {
+                 try
+                 {
                      File imagefile = File.createTempFile(filename,".jpg" , storageDirectory);
-
                      Uri imageUri =  FileProvider.getUriForFile(form_teacher.this , "com.example.client.fileprovider" , imagefile);
-
                      currentPhotoPath = imagefile.getAbsolutePath();
                      Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                      intent.putExtra(MediaStore.EXTRA_OUTPUT , imageUri);
@@ -42,6 +41,17 @@ public class form_teacher extends AppCompatActivity {
                  } catch (IOException e) {
                      e.printStackTrace();
                  }
+             }
+         });
+
+
+
+         findViewById(R.id.button_next_teacher).setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 Intent i=new Intent(form_teacher.this , persnal_details_teacher.class);
+                 startActivity(i);
+                 finish();
              }
          });
     }
