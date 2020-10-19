@@ -68,7 +68,7 @@ public class LoginParent extends AppCompatActivity {
                                 public void onSuccess(DocumentSnapshot documentSnapshot) {
                                     if(documentSnapshot.exists()){
                                         Toast.makeText(LoginParent.this,"Loggid in successfully",Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(getApplicationContext(),form_teacher.class));
+                                        startActivity(new Intent(getApplicationContext(),form_parent.class));
                                     }else{
                                         Toast.makeText(LoginParent.this,"invalid Id and password",Toast.LENGTH_SHORT).show();
                                     }

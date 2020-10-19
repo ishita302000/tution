@@ -24,7 +24,7 @@ public class form_teacher extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_teacher);
 
-         findViewById(R.id.button_photo_teacher).setOnClickListener(new View.OnClickListener() {
+         findViewById(R.id.button_photo_parent).setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
                String filename = "photo_teacher";
