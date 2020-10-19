@@ -179,7 +179,7 @@ public class Signup_parent extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     Toast.makeText(Signup_parent.this, "Authentication is successful", Toast.LENGTH_SHORT).show();
                     userId1 = fAuth1.getCurrentUser().getUid();
-                    DocumentReference documentReference1 = fstore1.collection("users").document(userId1);
+                    DocumentReference documentReference1 = fstore1.collection("usersParent").document(userId1);
                     Map<String, Object> user1 = new HashMap<>();
                     user1.put("name", name_t);
                     user1.put("E-mail", email_t);
