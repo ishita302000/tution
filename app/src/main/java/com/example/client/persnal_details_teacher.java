@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -32,7 +31,6 @@ public class persnal_details_teacher extends AppCompatActivity {
     private TextInputEditText address_t;
     Button btn_next;
     DatabaseReference reff;
-    users user;
     Button btn_save;
     private FirebaseAuth fAuth;
     private FirebaseFirestore fstore;
@@ -50,18 +48,16 @@ public class persnal_details_teacher extends AppCompatActivity {
 //                finish();
 //            }
 //        });
-//
-        name_t = (TextInputEditText)findViewById(R.id.name_teacher);
+
         age_t = (TextInputEditText)findViewById(R.id.age_teacher);
         gender_t = (TextInputEditText)findViewById(R.id.Gender_teacher);
         martial_t = (TextInputEditText)findViewById(R.id.martial_teacher);
-        email_t = (TextInputEditText)findViewById(R.id.Email_teacher);
+       // email_t = (TextInputEditText)findViewById(R.id.Email_teacher);
         birth_t = (TextInputEditText)findViewById(R.id.Birth_teacher);
-        contact_t = (TextInputEditText)findViewById(R.id.contact_teacher);
+        //contact_t = (TextInputEditText)findViewById(R.id.contact_teacher);
         address_t = (TextInputEditText)findViewById(R.id.address_teacher);
         reff = FirebaseDatabase.getInstance().getReference().child("users");
         btn_save = (Button)findViewById(R.id.persnal_teacher_button);
-        user = new users();
         fAuth = FirebaseAuth.getInstance();
         fstore = FirebaseFirestore.getInstance();
         btn_save.setOnClickListener(new View.OnClickListener() {
@@ -71,12 +67,12 @@ public class persnal_details_teacher extends AppCompatActivity {
                    Long  birtht =Long.parseLong(age_t.getText().toString().trim());
                    Long contactt = Long.parseLong(contact_t.getText().toString().trim());*/
                 userId_techer = fAuth.getCurrentUser().getUid();
-                DocumentReference documentReference = fstore.collection("usersdetails").document(userId_techer);
+                DocumentReference documentReference = fstore.collection("users_persnal_details_teacher").document(userId_techer);
                 Map<String, Object> user = new HashMap<>();
                 user.put("age", age_t.getText().toString().trim());
                 user.put("gender", gender_t.getText().toString().trim());
-                user.put("materialstatus", martial_t.getText().toString().trim());
-                user.put("date of birth", age_t.getText().toString().trim());
+                user.put("martial status", martial_t.getText().toString().trim());
+                user.put("date of birth", birth_t.getText().toString().trim());
                 user.put("address", address_t.getText().toString().trim());
                 documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
