@@ -11,10 +11,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class LoginParent extends AppCompatActivity {
      private TextView signupFor_parent;
@@ -24,6 +28,7 @@ public class LoginParent extends AppCompatActivity {
     private TextView login_phnno_parent;
     private Button parent_login;
     private FirebaseAuth fAuth;
+    private FirebaseFirestore fstore;
     private  TextView loginphn;
     private Button ForgetPassword_parent;
     @Override
@@ -35,10 +40,11 @@ public class LoginParent extends AppCompatActivity {
         email_login_parent= findViewById(R.id.email_log_parent);
         password_login_parent=findViewById(R.id.password_log_parent);
         forgetPassword_parent = findViewById(R.id.forgot_parent);
-        //login_phnno_parent=findViewById(R.id.phnno_log_parent);
+        login_phnno_parent=findViewById(R.id.newuser_parent);
         parent_login = findViewById(R.id.signin_parent);
         //loginphn = findViewById(R.id.phnno_log_teacher);
         fAuth=FirebaseAuth.getInstance();
+        fstore=FirebaseFirestore.getInstance();
         signupFor_parent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,9 +62,20 @@ public class LoginParent extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-
-                            Toast.makeText(LoginParent.this,"Loggid in successfully",Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(),form_teacher.class));
+                            DocumentReference documentReference = fstore.collection("usersParent").document(fAuth.getCurrentUser().getUid());
+                            documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                @Override
+                                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                    if(documentSnapshot.exists()){
+                                        Toast.makeText(LoginParent.this,"Loggid in successfully",Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(getApplicationContext(),form_parent.class));
+                                    }else{
+                                        Toast.makeText(LoginParent.this,"invalid Id and password",Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                            //Toast.makeText(LoginParent.this,"Loggid in successfully",Toast.LENGTH_SHORT).show();
+                            //startActivity(new Intent(getApplicationContext(),form_teacher.class));
                         }else{
                             Toast.makeText(LoginParent.this,"Error !"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
 
@@ -67,10 +84,30 @@ public class LoginParent extends AppCompatActivity {
                 });
             }
         });
+
+        login_phnno_parent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(LoginParent.this , phn_parent.class);
+                startActivity(i);
+                finish();
+            }
+        });
     }
     //for going to signup activity
     private void takeTosignupPageForteachers(){
         startActivity(new Intent(this,Signup_parent.class));
     }
+    public void logout(){
+        FirebaseAuth.getInstance().signOut();
+        finish();
+    }
 
+    @Override
+    public void onBackPressed() {
+        logout();
+        super.onBackPressed();
+
+
+    }
 }

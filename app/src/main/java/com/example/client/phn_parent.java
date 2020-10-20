@@ -1,14 +1,14 @@
 package com.example.client;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -25,26 +25,27 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.concurrent.TimeUnit;
 
-public class phn_teacher extends AppCompatActivity {
+public class phn_parent extends AppCompatActivity {
     private FirebaseAuth fAuth1;
     private FirebaseFirestore fstore1;
     private FirebaseFirestore fStore;
     private String userId;
     private String verificationid;
-     PhoneAuthProvider.ForceResendingToken token;
+    PhoneAuthProvider.ForceResendingToken token;
     private Boolean verificationInprogress=false;
     private FirebaseUser fUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_phn_teacher);
+        setContentView(R.layout.activity_phn_parent);
         Button btn_phn_login=findViewById(R.id.login_phn_parent);
         final EditText mPhone_no=findViewById(R.id.phn__login_parent);
         final EditText mOTP_no=findViewById(R.id.loginotp_parent);
         fAuth1=FirebaseAuth.getInstance();
         fstore1=FirebaseFirestore.getInstance();
         fUser=fAuth1.getCurrentUser();
+
         btn_phn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,7 +92,7 @@ public class phn_teacher extends AppCompatActivity {
 
             @Override
             public void onVerificationFailed(FirebaseException e) {
-                Toast.makeText(phn_teacher.this,"Cannot create account"+e.getMessage(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(phn_parent.this,"Cannot create account"+e.getMessage(),Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -101,17 +102,17 @@ public class phn_teacher extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    Toast.makeText(phn_teacher.this,"Login successful",Toast.LENGTH_SHORT).show();
-                    DocumentReference documentReference = fstore1.collection("users").document(fAuth1.getCurrentUser().getUid());
+                    Toast.makeText(phn_parent.this,"Login successful",Toast.LENGTH_SHORT).show();
+                    DocumentReference documentReference = fstore1.collection("usersParent").document(fAuth1.getCurrentUser().getUid());
                     if(documentReference==null){
                         fUser.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if(task.isSuccessful()){
-                                    Toast.makeText(phn_teacher.this,"noDeleted",Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(phn_parent.this,"noDeleted",Toast.LENGTH_SHORT).show();
                                 }
                                 else{
-                                    Toast.makeText(phn_teacher.this,"noDeleted not",Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(phn_parent.this,"noDeleted not",Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
@@ -120,18 +121,18 @@ public class phn_teacher extends AppCompatActivity {
                             @Override
                             public void onSuccess(DocumentSnapshot documentSnapshot) {
                                 if(documentSnapshot.exists()){
-                                    startActivity(new Intent(phn_teacher.this,form_teacher.class));
-                                    Toast.makeText(phn_teacher.this,"Authentication is successful123",Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(phn_parent.this,form_teacher.class));
+                                    Toast.makeText(phn_parent.this,"Authentication is successful123",Toast.LENGTH_SHORT).show();
                                 }
                                 else{
-                                    Toast.makeText(phn_teacher.this,"userDoesnotExist",Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(phn_parent.this,"userDoesnotExist",Toast.LENGTH_SHORT).show();
 
                                 }
                             }
                         });
                     }
                 }else{
-                    Toast.makeText(phn_teacher.this,"Authentication failed",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(phn_parent.this,"Authentication failed",Toast.LENGTH_SHORT).show();
                 }
             }
         });

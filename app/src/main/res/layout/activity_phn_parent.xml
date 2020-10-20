@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginTeacher"
+    tools:context=".LoginParent"
     android:orientation="vertical"
     android:background="#fff"
     android:padding="20dp">
@@ -63,29 +63,29 @@
                 android:id="@+id/loginotp_parent"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-<!--        <com.google.android.material.textfield.TextInputLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:id="@+id/password_teacher"-->
-<!--            android:hint="Password"-->
-<!--            app:passwordToggleEnabled="true"-->
-<!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">-->
+        <!--        <com.google.android.material.textfield.TextInputLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:id="@+id/password_teacher"-->
+        <!--            android:hint="Password"-->
+        <!--            app:passwordToggleEnabled="true"-->
+        <!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">-->
 
-<!--            <com.google.android.material.textfield.TextInputEditText-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:inputType="textPassword"/>-->
-<!--        </com.google.android.material.textfield.TextInputLayout>TextInputLayout-->
+        <!--            <com.google.android.material.textfield.TextInputEditText-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:inputType="textPassword"/>-->
+        <!--        </com.google.android.material.textfield.TextInputLayout>TextInputLayout-->
 
-<!--        <Button-->
-<!--            android:layout_width="200dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_gravity="right"-->
-<!--            android:layout_margin="5dp"-->
-<!--            android:background="#00000000"-->
-<!--            android:elevation="0dp"-->
-<!--            android:id="@+id/forgot_teacher"-->
-<!--            android:text="Forget Password?" />-->
+        <!--        <Button-->
+        <!--            android:layout_width="200dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_gravity="right"-->
+        <!--            android:layout_margin="5dp"-->
+        <!--            android:background="#00000000"-->
+        <!--            android:elevation="0dp"-->
+        <!--            android:id="@+id/forgot_teacher"-->
+        <!--            android:text="Forget Password?" />-->
 
         <Button
             android:id="@+id/login_phn_parent"
@@ -106,6 +106,4 @@
             android:paddingLeft="108sp"/>
     </LinearLayout>
 </LinearLayout>
-
-
 
