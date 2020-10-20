@@ -23,7 +23,7 @@
         app:layout_constraintVertical_bias="0.024" />
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/parent_form_image"
+        android:id="@+id/parent_form_image1"
         android:layout_width="247dp"
         android:layout_height="217dp"
         android:layout_alignParentEnd="true"
@@ -41,7 +41,7 @@
         app:layout_constraintVertical_bias="0.342" />
 
     <Button
-        android:id="@+id/button_photo_parent"
+        android:id="@+id/button_photo_teacher"
         android:layout_width="322dp"
         android:layout_height="58dp"
         android:background="#FDC314"

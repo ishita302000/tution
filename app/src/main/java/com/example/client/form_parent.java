@@ -11,7 +11,6 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -47,8 +46,8 @@ public class form_parent extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_parent);
 
-        selectImage=findViewById(R.id.parent_form_image);
-        cameraUplode=findViewById(R.id.button_photo_parent);
+        selectImage=findViewById(R.id.parent_form_image1);
+        cameraUplode=findViewById(R.id.button_photo_teacher);
         storageReference = FirebaseStorage.getInstance().getReference();
         cameraUplode.setOnClickListener(new View.OnClickListener() {
             @Override
