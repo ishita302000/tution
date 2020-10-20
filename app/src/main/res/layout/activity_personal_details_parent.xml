@@ -13,13 +13,13 @@
         android:fontFamily="@font/amaranth"
         android:text="Persnal Details"
         android:textColor="#0B0A0A"
-        android:textSize="40sp"
+        android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.02" />
+        app:layout_constraintVertical_bias="0.041" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -97,10 +97,10 @@
             android:layout_width="match_parent"
 
             android:layout_height="wrap_content"
-            android:hint="Work Experince in any other ">
+            android:hint="Occupation ">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/any_other_teaching_parent"
+                android:id="@+id/occupation_parent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -133,10 +133,10 @@
             android:layout_width="match_parent"
 
             android:layout_height="wrap_content"
-            android:hint="Any other degree">
+            android:hint=" Specific allergy of your ward">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/chosee_parent"
+                android:id="@+id/allergy_parent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>

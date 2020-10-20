@@ -51,8 +51,8 @@ public class Qualification_teacher extends AppCompatActivity {
         //board_t = findViewById(R.id.boardcbsc_teacher);
         board_t=findViewById(R.id.boardcbsc_teacher);
         graduation_t = findViewById(R.id.graduation_teacher);
-        year_of_graduation_t = findViewById(R.id.your_graduation_teacher);
-        postgraduation_t = findViewById(R.id.post_graduationteacher);
+        year_of_graduation_t = findViewById(R.id.your_graduation_year_teacher);
+        postgraduation_t = findViewById(R.id.post_graduation_teacher);
         subject_spacialization_t = findViewById(R.id.subject_specialisation_teacher);
         Institution_t = findViewById(R.id.name_institution_teacher);
         degree_t = findViewById(R.id.chosee_degree_teacher);
