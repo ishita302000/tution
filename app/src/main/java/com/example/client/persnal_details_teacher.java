@@ -83,7 +83,7 @@ public class persnal_details_teacher extends AppCompatActivity {
                     public void onSuccess(Void aVoid) {
                         Log.i("info", "details added successfully" + userId_techer);
                         //. Log.i("info","on success:user  profile is created"+userId);
-                        Intent i = new Intent(persnal_details_teacher.this , Qualification_teacher.class);
+                        Intent i = new Intent(persnal_details_teacher.this , professional_teacher.class);
                         startActivity(i);
 
                     }

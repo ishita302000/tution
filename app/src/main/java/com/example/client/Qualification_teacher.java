@@ -16,7 +16,7 @@ public class Qualification_teacher extends AppCompatActivity {
         findViewById(R.id.Qualification_teacher).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(Qualification_teacher.this , professional_teacher.class);
+                Intent i=new Intent(Qualification_teacher.this , upload_teacher.class);
                 startActivity(i);
                 finish();
             }
