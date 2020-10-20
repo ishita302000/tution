@@ -39,6 +39,7 @@ public class form_parent extends AppCompatActivity {
     public static final int CAMERA_REQUEST_CODE = 102;
     private ImageView selectImage;
     private Button cameraUplode;
+    private Button nex_activity;
     String currentPhotoPath;
     private StorageReference storageReference;
     @Override
@@ -48,6 +49,8 @@ public class form_parent extends AppCompatActivity {
 
         selectImage=findViewById(R.id.parent_form_image1);
         cameraUplode=findViewById(R.id.button_photo_teacher);
+
+        nex_activity=findViewById(R.id.button_next_parent);
         storageReference = FirebaseStorage.getInstance().getReference();
         cameraUplode.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +59,12 @@ public class form_parent extends AppCompatActivity {
             }
         });
 
+        nex_activity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity( new Intent(form_parent.this,personal_details_parent.class));
+            }
+        });
     }
 
     private void askCameraPermision() {

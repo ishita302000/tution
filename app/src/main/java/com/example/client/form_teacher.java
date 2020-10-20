@@ -48,7 +48,7 @@ public class form_teacher extends AppCompatActivity {
 
         selectImage=findViewById(R.id.parent_form_image1);
         cameraUplode=findViewById(R.id.button_photo_teacher);
-        next_button=findViewById(R.id.button_next_teacher);
+        next_button=findViewById(R.id.button_next_parent);
         storageReference = FirebaseStorage.getInstance().getReference();
         cameraUplode.setOnClickListener(new View.OnClickListener() {
             @Override

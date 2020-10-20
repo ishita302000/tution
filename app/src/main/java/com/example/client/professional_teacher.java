@@ -35,11 +35,11 @@ public class professional_teacher extends AppCompatActivity {
         setContentView(R.layout.activity_professional_teacher);
 
         total_work_experience_t=findViewById(R.id.work_experince_teaching_teacher);
-        work_experience_any_other_t=findViewById(R.id.any_other_teaching_teacher);
+        work_experience_any_other_t=findViewById(R.id.any_other_teaching_parent);
         your_strength_t=findViewById(R.id.your_strengths_teacher);
         classes_you_can_teach_t=findViewById(R.id.classes_teach_teacher);
         ehich_board_t=findViewById(R.id.board_teacher);
-        teaching_area_t=findViewById(R.id.chosee_teacher);
+        teaching_area_t=findViewById(R.id.chosee_parent);
         subjects_you_can_teach_t=findViewById(R.id.can_teach_teacher);
         teaching_languages_t=findViewById(R.id.lang_teacher);
         timings_t=findViewById(R.id.timing_teacher);
