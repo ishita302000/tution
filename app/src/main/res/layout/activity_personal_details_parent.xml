@@ -43,7 +43,7 @@
             android:hint="Age">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/age_teacher_p"
+                android:id="@+id/age_p"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
