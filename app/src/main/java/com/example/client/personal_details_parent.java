@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -76,6 +77,7 @@ allergy_p=(TextInputEditText)findViewById(R.id.allergy_parent) ;
                         //. Log.i("info","on success:user  profile is created"+userId);
                         //Intent i = new Intent(personal_details_parent.this , professional_parent.class);
                         //startActivity(i);
+                        Toast.makeText(personal_details_parent.this , "ThankYou for filling the form " , Toast.LENGTH_SHORT).show();
 
                     }
 
