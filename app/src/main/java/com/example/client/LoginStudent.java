@@ -36,7 +36,7 @@ public class LoginStudent extends AppCompatActivity {
         password_login_student=findViewById(R.id.password_log_student);
         forgetPassword_student = findViewById(R.id.forgot_student);
         ForgetPassword_student = findViewById(R.id.phnno_log_student);
-        loign_btn = findViewById(R.id.signin_student);
+        loign_btn = findViewById(R.id.Login_text_sigin_student);
         //login_phnno_teacher=findViewById(R.id.phnno_log_student);
         //teacher_login = findViewById(R.id.login_teacher);
         //loginphn = findViewById(R.id.phnno_log_teacher);

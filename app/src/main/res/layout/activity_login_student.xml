@@ -80,7 +80,7 @@
             android:text="Forget Password?" />
 
         <Button
-            android:id="@+id/signin_student"
+            android:id="@+id/Login_text_sigin_student"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
