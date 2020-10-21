@@ -40,7 +40,7 @@ public class personal_details_parent extends AppCompatActivity {
         setContentView(R.layout.activity_personal_details_parent);
 
 
-        age_p = (TextInputEditText)findViewById(R.id.age_teacher_p);
+        age_p = (TextInputEditText)findViewById(R.id.age_p);
         gender_p = (TextInputEditText)findViewById(R.id.Gender_teacher_p);
 occupation_p=(TextInputEditText)findViewById(R.id.occupation_parent);
 graduation_p=(TextInputEditText)findViewById(R.id.graduation_parent);
