@@ -2,6 +2,7 @@ package com.example.client;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -66,14 +67,39 @@ public class persnal_details_teacher extends AppCompatActivity {
                   /* int aget = Integer.parseInt(age_t.getText().toString().trim());
                    Long  birtht =Long.parseLong(age_t.getText().toString().trim());
                    Long contactt = Long.parseLong(contact_t.getText().toString().trim());*/
+                String ageT=age_t.getText().toString().trim();
+                String genderT=gender_t.getText().toString().trim();
+                String materialT=martial_t.getText().toString().trim();
+                String birthT= birth_t.getText().toString().trim();
+                String addressT= address_t.getText().toString().trim();
                 userId_techer = fAuth.getCurrentUser().getUid();
+                if((TextUtils.isEmpty(genderT))) {
+                    gender_t.setError("gender is required");
+                    return;
+                }
+                if((TextUtils.isEmpty(ageT))) {
+                    age_t.setError("age is required");
+                    return;
+                }
+                if((TextUtils.isEmpty(materialT))) {
+                    martial_t.setError("martial is required");
+                    return;
+                }
+                if((TextUtils.isEmpty(birthT))) {
+                    birth_t.setError("birth date is required");
+                    return;
+                }
+                if((TextUtils.isEmpty(addressT))) {
+                    address_t.setError("address is required");
+                    return;
+                }
                 DocumentReference documentReference = fstore.collection("users_persnal_details_teacher").document(userId_techer);
                 Map<String, Object> user = new HashMap<>();
-                user.put("age", age_t.getText().toString().trim());
-                user.put("gender", gender_t.getText().toString().trim());
-                user.put("martial status", martial_t.getText().toString().trim());
-                user.put("date of birth", birth_t.getText().toString().trim());
-                user.put("address", address_t.getText().toString().trim());
+                user.put("age", ageT);
+                user.put("gender", genderT);
+                user.put("martial status", materialT);
+                user.put("date of birth", birthT);
+                user.put("address", addressT);
                 documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {

@@ -2,8 +2,10 @@ package com.example.client;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +28,7 @@ public class LoginTeacher extends AppCompatActivity {
       private FirebaseAuth fAuth;
       private  TextView loginphn;
       private Button ForgetPassword_teacher;
+      private ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +41,7 @@ public class LoginTeacher extends AppCompatActivity {
         login_phnno_teacher=findViewById(R.id.phnno_log_teacher);
         teacher_login = findViewById(R.id.login_teacher);
         loginphn = findViewById(R.id.phnno_log_teacher);
+        progressBar=findViewById(R.id.progressBar_teacher_login);
         fAuth=FirebaseAuth.getInstance();
         teacher_login.setOnClickListener(new View.OnClickListener(){
 
@@ -45,6 +49,21 @@ public class LoginTeacher extends AppCompatActivity {
             public void onClick(View v) {
                 String email_login=email_login_teacher.getText().toString().trim();
                 String password_login=password_login_teacher.getText().toString().trim();
+                if(TextUtils.isEmpty(email_login)) {
+                    email_login_teacher.setError("username is required");
+                    return;
+                }
+                if(TextUtils.isEmpty(password_login)) {
+                    password_login_teacher.setError("password is required");
+                    return;
+                }
+                if(password_login.length()<6)
+                {
+                    password_login_teacher.setError("the password must be more than 6 charaters");
+                    return;
+                }
+                progressBar.setVisibility(View.VISIBLE);
+                teacher_login.setEnabled(false);
                 fAuth.signInWithEmailAndPassword(email_login,password_login).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -53,7 +72,8 @@ public class LoginTeacher extends AppCompatActivity {
                             startActivity(new Intent(getApplicationContext(),form_teacher.class));
                         }else{
                             Toast.makeText(LoginTeacher.this,"Error !"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-
+                            progressBar.setVisibility(View.GONE);
+                            teacher_login.setEnabled(false);
                         }
                     }
                 });

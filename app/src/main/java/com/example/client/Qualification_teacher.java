@@ -2,6 +2,7 @@ package com.example.client;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -66,24 +67,64 @@ public class Qualification_teacher extends AppCompatActivity {
         btn_next_qua_t.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String board=board_t.getText().toString().trim();
+                String graduation=graduation_t.getText().toString().trim();
+                String yearofgraduation=year_of_graduation_t.getText().toString().trim();
+                String postgraduation= postgraduation_t.getText().toString().trim();
+                String specialization=subject_spacialization_t.getText().toString().trim();
+                String institution=Institution_t.getText().toString().trim();
+                String degree=degree_t.getText().toString().trim();
+                String language=language_t.getText().toString().trim();
+                if((TextUtils.isEmpty(board))) {
+                    board_t.setError("board is required");
+                    return;
+                }
+                if((TextUtils.isEmpty(graduation))) {
+                    graduation_t.setError("graduaation is required");
+                    return;
+                }
+                if((TextUtils.isEmpty(yearofgraduation))) {
+                    year_of_graduation_t.setError("year of graduation is required");
+                    return;
+                }
+                if((TextUtils.isEmpty(postgraduation))) {
+                    postgraduation_t.setError("postgraduation  is required");
+                    return;
+                }
+                if((TextUtils.isEmpty(specialization))) {
+                    subject_spacialization_t.setError("specialization is required");
+                    return;
+                }
+                if((TextUtils.isEmpty(institution))) {
+                    Institution_t.setError("institution is required");
+                    return;
+                }
+                if((TextUtils.isEmpty(degree))) {
+                    degree_t.setError("degree is required");
+                    return;
+                }
+                if((TextUtils.isEmpty(language))) {
+                    language_t.setError("language is required");
+                    return;
+                }
                  userId_techer = fAuth.getCurrentUser().getUid();
                 DocumentReference documentReference = fstore.collection("user_qualification_teacher").document(userId_techer);
                 Map<String , Object> user= new HashMap<>();
-                user.put("Board of class 12th" , board_t.getText().toString().trim());
-                user.put("Graduation subject " , graduation_t.getText().toString().trim());
-                user.put("Year of graduation" , year_of_graduation_t.getText().toString().trim());
-                user.put("post graduation" , postgraduation_t.getText().toString().trim());
-                user.put("subject specialization" , subject_spacialization_t.getText().toString().trim());
-                user.put("Institution name " , Institution_t.getText().toString().trim());
-                user.put(" any other degree " , degree_t.getText().toString().trim());
-                user.put("Language known" , language_t.getText().toString().trim());
+                user.put("Board of class 12th" ,board );
+                user.put("Graduation subject " , graduation);
+                user.put("Year of graduation" ,yearofgraduation );
+                user.put("post graduation" ,postgraduation);
+                user.put("subject specialization" , specialization);
+                user.put("Institution name " , institution);
+                user.put(" any other degree " , degree);
+                user.put("Language known" , language);
                 documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
                         Log.i("info", "details added successfully" + userId_techer);
                         //. Log.i("info","on success:user  profile is created"+userId);
-                        Intent i = new Intent(Qualification_teacher.this , professional_teacher.class);
-                        startActivity(i);
+                        //Intent i = new Intent(Qualification_teacher.this , professional_teacher.class);
+                        //startActivity(i);
 
                     }
                 });
