@@ -48,9 +48,9 @@ public class photo_upload_student extends AppCompatActivity {
         setContentView(R.layout.activity_photo_upload_student);
 
         selectImage=findViewById(R.id.parent_form_image1);
-        cameraUplode=findViewById(R.id.button_photo_parent);
+        cameraUplode=findViewById(R.id.button_photo_student);
 
-        nex_activity=findViewById(R.id.button_next_parent);
+        nex_activity=findViewById(R.id.button_next_student);
         storageReference = FirebaseStorage.getInstance().getReference();
         cameraUplode.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,7 +62,7 @@ public class photo_upload_student extends AppCompatActivity {
         nex_activity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity( new Intent(photo_upload_student.this,personal_details_parent.class));
+                startActivity( new Intent(photo_upload_student.this,persnal_details_student.class));
             }
         });
     }
