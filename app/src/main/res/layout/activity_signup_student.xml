@@ -27,7 +27,7 @@
         android:transitionName="logo_text" />
 
     <TextView
-        android:id="@+id/Sign_logan_name_student"
+        android:id="@+id/signup_student"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Let's SignUp your Account "
@@ -35,58 +35,69 @@
 
     <RelativeLayout
         android:layout_width="376dp"
-        android:layout_height="434dp"
+        android:layout_height="450dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="35dp"
         android:orientation="vertical">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signn_fullname_student"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="369dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:id="@+id/signn_fullname_student"
             android:hint="Full Name" />
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signn_username_student"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="307dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:id="@+id/signn_username_student"
             android:hint="UserName" />
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/sign_email_student"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="240dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="Email"
-            android:id="@+id/Sign_email_student"/>
+            android:hint="Email" />
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signn_phn_student"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="175dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:id="@+id/signn_phn_student"
             android:hint="Phone no." />
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/sign_otp_student"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="377dp"
+            android:hint="Enter OTP"
+            android:visibility="invisible" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signn_password_student"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="115dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:id="@+id/signn_password_student"
             android:hint="Password" />
 
+
         <Button
-            android:id="@+id/signin_student"
+            android:id="@+id/Login_text_sigin_student"
             android:layout_width="match_parent"
             android:layout_height="61dp"
             android:layout_alignParentBottom="true"

@@ -41,12 +41,12 @@
 
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signn_fullname_teacher"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="369dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:id="@+id/signn_fullname_teacher"
             android:hint="Full Name" />
 
         <com.google.android.material.textfield.TextInputEditText
@@ -83,6 +83,22 @@
 
 
         <Button
+            android:id="@+id/signup_teacher_phoneNO"
+            android:layout_width="match_parent"
+            android:layout_height="61dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="-4dp"
+            android:layout_marginRight="-4dp"
+            android:layout_marginBottom="232dp"
+            android:background="#000"
+            android:text="OTP ENTERED"
+            android:textColor="#fff"
+            android:visibility="invisible" />
+
+        <Button
             android:id="@+id/signup_teacher"
             android:layout_width="match_parent"
             android:layout_height="61dp"
@@ -90,22 +106,22 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             android:layout_marginTop="5dp"
-            android:layout_marginEnd="0dp"
-            android:layout_marginRight="0dp"
-            android:layout_marginBottom="106dp"
+            android:layout_marginEnd="-7dp"
+            android:layout_marginRight="-7dp"
+            android:layout_marginBottom="108dp"
             android:background="#000"
             android:text="SIGN UP"
             android:textColor="#fff" />
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/sign_otp_teacher"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="57dp"
+            android:layout_marginBottom="305dp"
             android:hint="Enter OTP"
-            android:visibility="invisible"/>
-
+            android:visibility="invisible" />
 
         <Button
             android:id="@+id/Login_text_sigin_teacher"
@@ -115,13 +131,14 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             android:layout_gravity="right"
-            android:layout_marginEnd="-4dp"
-            android:layout_marginRight="-4dp"
-            android:layout_marginBottom="1dp"
+            android:layout_marginEnd="-1dp"
+            android:layout_marginRight="-1dp"
+            android:layout_marginBottom="56dp"
             android:background="#00000000"
             android:elevation="0dp"
             android:text="ALREADY HAVE AN ACCOUNT? LOGIN"
             android:textColor="#000" />
+
     </RelativeLayout>
 
 </LinearLayout>

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -38,6 +39,7 @@ public class Signup_teacher extends AppCompatActivity {
     private FirebaseFirestore fstore;
     private String userId_techer;
     private EditText enterotp;
+    private  Button enter_otp;
     String verificationid;
     Boolean verificationInprogress = false;
     int u = 0;
@@ -63,6 +65,7 @@ public class Signup_teacher extends AppCompatActivity {
         teacher_regbtn = findViewById(R.id.signup_teacher);
         teacher_regtoLoginBtn = findViewById(R.id.Login_text_sigin_teacher);
         enterotp = findViewById(R.id.sign_otp_teacher);
+        enter_otp=findViewById(R.id.signup_teacher_phoneNO);
         fAuth = FirebaseAuth.getInstance();
         fstore = FirebaseFirestore.getInstance();
         if (fAuth.getCurrentUser() != null) {
@@ -80,10 +83,36 @@ public class Signup_teacher extends AppCompatActivity {
                     final String teacher_email = teacher_regEmail.getEditableText().toString();
                     final String teacher_phoneNo = teacher_Phone.getEditableText().toString();
                     final String teacher_password = teacher_regpassword.getEditableText().toString();
+                    if((TextUtils.isEmpty(teacher_name))) {
+                        teacher_regName.setError("name is required");
+                        return;
+                    }
+                    if((TextUtils.isEmpty(teacher_password))) {
+                        teacher_regpassword.setError("password is required");
+                        return;
+                    }
+                    if((TextUtils.isEmpty(teacher_phoneNo))) {
+                        teacher_Phone.setError("phone is required");
+                        return;
+                    }
+                    if(teacher_phoneNo.length()<10) {
+                        teacher_Phone.setError("the no must be of 10 character");
+                        return;
+                    }
+                    if((TextUtils.isEmpty(teacher_email))) {
+                        teacher_regEmail.setError("email is required");
+                        return;
+                    }
+                    if(teacher_password.length()<6)
+                    {
+                        teacher_regpassword.setError("the password must be more than 6 charaters");
+                        return;
+                    }
+
                     name_t=teacher_name;
                     email_t= teacher_email;
                     phpne_t=teacher_phoneNo;
-
+                    teacher_regbtn.setEnabled(false);
                     UserHelperClass_teacher helperClass_teacher = new UserHelperClass_teacher(teacher_name, teacher_email, teacher_phoneNo, teacher_password);
                     fAuth.createUserWithEmailAndPassword(teacher_email, teacher_password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
@@ -122,6 +151,7 @@ public class Signup_teacher extends AppCompatActivity {
 
                     });
                 } else {
+                    teacher_regbtn.setEnabled(false);
                     String userOTP = enterotp.getText().toString().trim();
                     if (!userOTP.isEmpty() && userOTP.length() == 6) {
                         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationid, userOTP);
@@ -131,6 +161,7 @@ public class Signup_teacher extends AppCompatActivity {
                         // verificationInprogress=false;
                     } else {
                         teacher_Phone.setError("valid otp is required");
+                        teacher_regbtn.setEnabled(true);
                     }
                 }
 
@@ -149,6 +180,14 @@ public class Signup_teacher extends AppCompatActivity {
                 token = forceResendingToken;
                 verificationInprogress = true;
                 enterotp.setVisibility(View.VISIBLE);
+               // enter_otp.setVisibility(View.VISIBLE);
+                teacher_regbtn.setEnabled(true);
+                teacher_regName.setVisibility(View.GONE);
+                teacher_regEmail.setVisibility(View.GONE);
+                teacher_Phone.setVisibility(View.GONE);
+                teacher_regpassword.setVisibility(View.GONE);
+                teacher_regbtn.setEnabled(true);
+
             }
 
             @Override
@@ -192,6 +231,8 @@ public class Signup_teacher extends AppCompatActivity {
                     });
                 } else {
                     Toast.makeText(Signup_teacher.this, "Authentication failed", Toast.LENGTH_SHORT).show();
+
+                    teacher_regbtn.setEnabled(true);
                 }
             }
         });
