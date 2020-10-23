@@ -44,11 +44,11 @@ public class form_teacher extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form_parent);
+        setContentView(R.layout.activity_form_teacher);
 
-        selectImage=findViewById(R.id.parent_form_image1);
+        selectImage=findViewById(R.id.teacher_form_image1);
         cameraUplode=findViewById(R.id.button_photo_teacher);
-        next_button=findViewById(R.id.button_next_parent);
+        next_button=findViewById(R.id.button_next_teacher);
         storageReference = FirebaseStorage.getInstance().getReference();
         cameraUplode.setOnClickListener(new View.OnClickListener() {
             @Override

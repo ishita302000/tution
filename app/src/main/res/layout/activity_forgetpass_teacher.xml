@@ -24,8 +24,8 @@
         android:hint="Email"
 
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="248dp">
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="233dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/teacher_forget_email"

@@ -47,7 +47,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:id="@+id/phn__login_parent"
+                android:id="@+id/phn__login_teacher"
                 android:layout_height="wrap_content"/>
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -58,7 +58,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/loginotp_parent"
+                android:id="@+id/loginotp_teacher"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:visibility="invisible" />
@@ -89,7 +89,7 @@
 <!--            android:text="Forget Password?" />-->
 
         <Button
-            android:id="@+id/login_phn_parent"
+            android:id="@+id/login_phn_teacher"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"

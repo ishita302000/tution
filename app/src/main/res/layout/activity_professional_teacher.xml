@@ -55,7 +55,7 @@
             android:hint="Work Experince in any other ">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/any_other_teaching_parent"
+                android:id="@+id/any_other_teaching_teacher"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -103,7 +103,7 @@
             android:hint="Your preferable teaching area">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/chosee_parent"
+                android:id="@+id/chosee_teacher"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>

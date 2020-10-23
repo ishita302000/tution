@@ -43,9 +43,9 @@ public class phn_teacher extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_phn_teacher);
-         btn_phn_login=findViewById(R.id.login_phn_parent);
-        final EditText mPhone_no=findViewById(R.id.phn__login_parent);
-         mOTP_no=findViewById(R.id.loginotp_parent);
+         btn_phn_login=findViewById(R.id.login_phn_teacher);
+        final EditText mPhone_no=findViewById(R.id.phn__login_teacher);
+         mOTP_no=findViewById(R.id.loginotp_teacher);
         progressBar=findViewById(R.id.progressBar_teacher_pn);
         fAuth1=FirebaseAuth.getInstance();
         fstore1=FirebaseFirestore.getInstance();
