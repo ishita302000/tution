@@ -1,14 +1,14 @@
 package com.example.client;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -20,6 +20,7 @@ public class LoginStudent extends AppCompatActivity {
     private TextView signupFor_student;
     private TextInputEditText email_login_student;
     private TextInputEditText password_login_student;
+    private TextInputEditText loginphn;
     private Button forgetPassword_student;
 
     private FirebaseAuth fAuth;
@@ -35,11 +36,10 @@ public class LoginStudent extends AppCompatActivity {
         email_login_student= findViewById(R.id.email_log_student);
         password_login_student=findViewById(R.id.password_log_student);
         forgetPassword_student = findViewById(R.id.forgot_student);
-        ForgetPassword_student = findViewById(R.id.phnno_log_student);
         loign_btn = findViewById(R.id.Login_text_sigin_student);
         //login_phnno_teacher=findViewById(R.id.phnno_log_student);
         //teacher_login = findViewById(R.id.login_teacher);
-        //loginphn = findViewById(R.id.phnno_log_teacher);
+        loginphn = findViewById(R.id.phnno_studet);
         fAuth=FirebaseAuth.getInstance();
         signupFor_student.setOnClickListener(new View.OnClickListener() {
             @Override

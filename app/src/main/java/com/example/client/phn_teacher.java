@@ -56,7 +56,7 @@ public class phn_teacher extends AppCompatActivity {
         reLogin_otp_not_generated.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(phn_teacher.this,phn_teacher.class));
+                startActivity(new Intent(phn_teacher.this,form_teacher.class));
             }
         });
 

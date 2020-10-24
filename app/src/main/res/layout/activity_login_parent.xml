@@ -11,9 +11,9 @@
 
     <ImageView
         android:id="@+id/logo_image_parent"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@drawable/logo"
+        android:layout_width="184dp"
+        android:layout_height="149dp"
+        android:src="@drawable/rr"
         android:transitionName="logo_image" />
 
     <TextView

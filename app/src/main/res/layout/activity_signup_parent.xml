@@ -10,10 +10,10 @@
     android:padding="20dp">
 
     <ImageView
-        android:id="@+id/Sign_logo_image_parent"
-        android:layout_width="132dp"
-        android:layout_height="122dp"
-        android:src="@drawable/logo"
+        android:id="@+id/rr"
+        android:layout_width="165dp"
+        android:layout_height="79dp"
+        android:src="@drawable/rr"
         android:transitionName="logo_image" />
 
     <TextView
@@ -121,11 +121,12 @@
             android:elevation="0dp"
             android:text="ALREADY HAVE AN ACCOUNT? LOGIN"
             android:textColor="#000" />
+
         <ProgressBar
             android:id="@+id/progressBar_parent_signup"
             style="?android:attr/progressBarStyle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="65dp"
             android:visibility="invisible" />
     </RelativeLayout>
 

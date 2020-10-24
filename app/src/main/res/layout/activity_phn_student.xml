@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginTeacher"
+    android:orientation="vertical"
+    android:background="#fff"
+    android:padding="20dp">
+
+    <ImageView
+        android:id="@+id/logo_image_studet"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/rr" />
+    r
+    <TextView
+        android:id="@+id/logo_name_studet"
+        android:layout_width="370dp"
+        android:layout_height="108dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Hello there, Welcome Back"
+        android:textColor="#000"
+        android:textSize="40sp"
+        android:transitionName="logo_text" />
+    <TextView
+        android:id="@+id/slogan_name_studet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign Up to continue"
+        android:textSize="18sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:hint="Enter your Phn No."
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:id="@+id/phn__login_studet"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:hint="Enter otp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/loginotp_studet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="invisible" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--        <com.google.android.material.textfield.TextInputLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:id="@+id/password_teacher"-->
+        <!--            android:hint="Password"-->
+        <!--            app:passwordToggleEnabled="true"-->
+        <!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">-->
+
+        <!--            <com.google.android.material.textfield.TextInputEditText-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:inputType="textPassword"/>-->
+        <!--        </com.google.android.material.textfield.TextInputLayout>TextInputLayout-->
+
+        <!--        <Button-->
+        <!--            android:layout_width="200dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_gravity="right"-->
+        <!--            android:layout_margin="5dp"-->
+        <!--            android:background="#00000000"-->
+        <!--            android:elevation="0dp"-->
+        <!--            android:id="@+id/forgot_teacher"-->
+        <!--            android:text="Forget Password?" />-->
+
+        <Button
+            android:id="@+id/btn_login_phn_studet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="#000"
+            android:text="LOG IN"
+            android:textColor="#fff" />
+
+        <TextView
+            android:id="@+id/phnno_studet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="108sp"
+            android:text="Login with Email Id"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar_studet_pn"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/reEnterpn_studet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="108sp"
+        android:text="If OTP not generated,click here and re login with phoneNo."
+        android:textSize="18sp"
+        android:visibility="invisible" />
+</LinearLayout>
+
+
+

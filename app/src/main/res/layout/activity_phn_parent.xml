@@ -11,9 +11,9 @@
 
     <ImageView
         android:id="@+id/logo_image_teacher"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@drawable/logo" />
+        android:layout_width="184dp"
+        android:layout_height="132dp"
+        android:src="@drawable/rr" />
 
     <TextView
         android:id="@+id/logo_name_teacher"

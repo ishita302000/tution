@@ -11,9 +11,9 @@
 
     <ImageView
         android:id="@+id/Sign_logo_image_student"
-        android:layout_width="132dp"
-        android:layout_height="122dp"
-        android:src="@drawable/logo"
+        android:layout_width="168dp"
+        android:layout_height="116dp"
+        android:src="@drawable/rr"
         android:transitionName="logo_image" />
 
     <TextView
