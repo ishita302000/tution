@@ -104,6 +104,21 @@
             android:text="Login with Email Id"
             android:textSize="18sp"
             android:paddingLeft="108sp"/>
+        <ProgressBar
+            android:id="@+id/progressBar_student_pn"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/reEnterpn1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="108sp"
+            android:text="If OTP not generated,click here and re login with phoneNo."
+            android:textSize="18sp"
+            android:visibility="invisible" />
     </LinearLayout>
 </LinearLayout>
 

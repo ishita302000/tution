@@ -13,10 +13,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class LoginTeacher extends AppCompatActivity {
      private TextView signup;
@@ -26,6 +30,7 @@ public class LoginTeacher extends AppCompatActivity {
      private TextView login_phnno_teacher;
      private Button teacher_login;
       private FirebaseAuth fAuth;
+    private FirebaseFirestore fstore;
       private  TextView loginphn;
       private Button ForgetPassword_teacher;
       private ProgressBar progressBar;
@@ -43,6 +48,7 @@ public class LoginTeacher extends AppCompatActivity {
         loginphn = findViewById(R.id.phnno_log_teacher);
         progressBar=findViewById(R.id.progressBar_teacher_login);
         fAuth=FirebaseAuth.getInstance();
+        fstore=FirebaseFirestore.getInstance();
         teacher_login.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -69,7 +75,22 @@ public class LoginTeacher extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             Toast.makeText(LoginTeacher.this,"Loggid in successfully",Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(),form_teacher.class));
+                            DocumentReference documentReference = fstore.collection("users").document(fAuth.getCurrentUser().getUid());
+                            documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                @Override
+                                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                    if(documentSnapshot.exists()){
+                                        Toast.makeText(LoginTeacher.this,"Loggid in successfully",Toast.LENGTH_SHORT).show();
+                                        progressBar.setVisibility(View.VISIBLE);
+                                        teacher_login.setEnabled(true);
+                                        startActivity(new Intent(getApplicationContext(),form_teacher.class));
+                                    }else{
+                                        Toast.makeText(LoginTeacher.this,"invalid Id and password",Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+
+                            //startActivity(new Intent(getApplicationContext(),form_teacher.class));
                         }else{
                             Toast.makeText(LoginTeacher.this,"Error !"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             progressBar.setVisibility(View.GONE);
