@@ -100,6 +100,12 @@
             android:text="Login with phn No."
             android:textColor="#000" />
 
+        <ProgressBar
+            android:id="@+id/progressBar_student_login"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="invisible" />
     </LinearLayout>
 </LinearLayout>
 
