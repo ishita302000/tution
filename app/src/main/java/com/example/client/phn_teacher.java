@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -32,7 +33,7 @@ public class phn_teacher extends AppCompatActivity {
     private FirebaseFirestore fstore1;
     private FirebaseFirestore fStore;
     private String userId;
-
+    private TextView reLogin_otp_not_generated;
     private String verificationid;
      PhoneAuthProvider.ForceResendingToken token;
     private Boolean verificationInprogress=false;
@@ -48,9 +49,17 @@ public class phn_teacher extends AppCompatActivity {
         final EditText mPhone_no=findViewById(R.id.phn__login_teacher);
          mOTP_no=findViewById(R.id.loginotp_teacher);
         progressBar=findViewById(R.id.progressBar_teacher_pn);
+        reLogin_otp_not_generated=findViewById(R.id.reEnterpn);
         fAuth1=FirebaseAuth.getInstance();
         fstore1=FirebaseFirestore.getInstance();
         fUser=fAuth1.getCurrentUser();
+        reLogin_otp_not_generated.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(phn_teacher.this,phn_teacher.class));
+            }
+        });
+
         btn_phn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,6 +74,7 @@ public class phn_teacher extends AppCompatActivity {
                         return;
                     }
                     progressBar.setVisibility(View.VISIBLE);
+                    reLogin_otp_not_generated.setVisibility(View.VISIBLE);
                     btn_phn_login.setEnabled(false);
                     //final String otp = mOTP_no.getText().toString().trim();
                     String phonrnumber = "+91" + phone;
@@ -98,6 +108,7 @@ public class phn_teacher extends AppCompatActivity {
                 btn_phn_login.setEnabled(true);
                 progressBar.setVisibility(View.GONE);
                 mOTP_no.setVisibility(View.VISIBLE);
+                reLogin_otp_not_generated.setVisibility(View.GONE);
             }
 
             @Override
@@ -113,6 +124,9 @@ public class phn_teacher extends AppCompatActivity {
             @Override
             public void onVerificationFailed(FirebaseException e) {
                 Toast.makeText(phn_teacher.this,"Cannot create account"+e.getMessage(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(phn_teacher.this,"please try after sometime."+e.getMessage(),Toast.LENGTH_SHORT).show();
+                progressBar.setVisibility(View.GONE);
+                startActivity(new Intent(phn_teacher.this,MainActivity.class));
             }
         });
 
@@ -142,6 +156,7 @@ public class phn_teacher extends AppCompatActivity {
                             @Override
                             public void onSuccess(DocumentSnapshot documentSnapshot) {
                                 if(documentSnapshot.exists()){
+                                    progressBar.setVisibility(View.GONE);
                                     startActivity(new Intent(phn_teacher.this,form_teacher.class));
                                     Toast.makeText(phn_teacher.this,"Authentication is successful123",Toast.LENGTH_SHORT).show();
                                 }
@@ -166,7 +181,10 @@ public class phn_teacher extends AppCompatActivity {
                         });
                     }
                 }else{
-                    Toast.makeText(phn_teacher.this,"Authentication failed",Toast.LENGTH_SHORT).show();
+                    reLogin_otp_not_generated.setVisibility(View.GONE);
+                    Toast.makeText(phn_teacher.this,"wrong OTP entered",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(phn_teacher.this,"relogin with phone no",Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(phn_teacher.this,phn_teacher.class));
                 }
             }
         });
