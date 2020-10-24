@@ -32,6 +32,7 @@ public class phn_teacher extends AppCompatActivity {
     private FirebaseFirestore fstore1;
     private FirebaseFirestore fStore;
     private String userId;
+
     private String verificationid;
      PhoneAuthProvider.ForceResendingToken token;
     private Boolean verificationInprogress=false;
@@ -136,6 +137,7 @@ public class phn_teacher extends AppCompatActivity {
                             }
                         });
                     }else{
+                        fUser=fAuth1.getCurrentUser();
                         documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                             @Override
                             public void onSuccess(DocumentSnapshot documentSnapshot) {
@@ -145,6 +147,19 @@ public class phn_teacher extends AppCompatActivity {
                                 }
                                 else{
                                     Toast.makeText(phn_teacher.this,"userDoesnotExist",Toast.LENGTH_SHORT).show();
+                                    fUser.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if(task.isSuccessful()){
+                                                Toast.makeText(phn_teacher.this,"noDeleted",Toast.LENGTH_SHORT).show();
+                                                FirebaseAuth.getInstance().signOut();
+                                            }
+                                            else{
+                                                Toast.makeText(phn_teacher.this,"noDeleted not",Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                    });
+
 
                                 }
                             }
