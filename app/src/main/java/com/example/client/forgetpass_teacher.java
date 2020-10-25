@@ -17,19 +17,20 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class forgetpass_teacher extends AppCompatActivity {
 
-    private Button btn_forget;
+    private Button btn_forget_teacher;
     private TextView Email_forget_teacher;
     private FirebaseAuth mAuth;
+    private  TextView backtologin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgetpass_teacher);
-        btn_forget = (Button)findViewById(R.id.buttonforget_teacher);
+        btn_forget_teacher = (Button)findViewById(R.id.buttonforget_teacher);
         Email_forget_teacher = (TextView)findViewById(R.id.teacher_forget_email);
         mAuth = FirebaseAuth.getInstance();
-
-       btn_forget.setOnClickListener(new View.OnClickListener() {
+        backtologin = findViewById(R.id.loginforget_t);
+       btn_forget_teacher.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
                String email_teacher = Email_forget_teacher.getText().toString();
@@ -58,5 +59,13 @@ public class forgetpass_teacher extends AppCompatActivity {
                }
            }
        });
+        backtologin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(forgetpass_teacher.this , LoginTeacher.class);
+                startActivity(i);
+                finish();
+            }
+        });
     }
 }

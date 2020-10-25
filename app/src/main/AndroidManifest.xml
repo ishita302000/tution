@@ -14,7 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".phn_student"></activity>
+        <activity android:name=".forgetpass_parent"></activity>
+        <activity android:name=".forgetpass_studet" />
+        <activity android:name=".phn_student" />
         <activity android:name=".persnal_details_student" />
         <activity android:name=".photo_upload_student" />
         <activity android:name=".personal_details_parent" />
@@ -33,7 +35,7 @@
         <activity android:name=".LoginStudent" />
         <activity android:name=".LoginTeacher" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".phn_parent"/>
+        <activity android:name=".phn_parent" />
         <activity android:name=".splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

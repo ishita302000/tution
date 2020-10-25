@@ -118,13 +118,13 @@ public class LoginTeacher extends AppCompatActivity {
                finish();
            }
        });
-       forgetPassword_teacher.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               Intent in = new Intent(LoginTeacher.this , forgetpass_teacher.class);
-               startActivity(in);
-           }
-       });
+        forgetPassword_teacher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(LoginTeacher.this , forgetpass_teacher.class);
+                startActivity(in);
+            }
+        });
 
 
     }
