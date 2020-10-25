@@ -63,7 +63,7 @@ public class forgetpass_parent extends AppCompatActivity {
         backtologin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(forgetpass_parent.this , LoginStudent.class);
+                Intent i = new Intent(forgetpass_parent.this , LoginParent.class);
                 startActivity(i);
                 finish();
             }
