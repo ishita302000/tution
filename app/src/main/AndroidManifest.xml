@@ -33,6 +33,7 @@
         <activity android:name=".LoginStudent" />
         <activity android:name=".LoginTeacher" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".phn_parent"/>
         <activity android:name=".splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -154,6 +154,7 @@ public class Signup_parent extends AppCompatActivity {
                             } else {
                                 Toast.makeText(Signup_parent.this, "Error !" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                 // mProgressBar2.setVisibility(View.GONE);u=
+                                startActivity(new Intent(Signup_parent.this,MainActivity.class));
                                 u = 0;
                             }
                         }

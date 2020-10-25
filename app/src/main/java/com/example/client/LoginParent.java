@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -58,6 +59,19 @@ public class LoginParent extends AppCompatActivity {
             public void onClick(View v) {
                 String email_login=email_login_parent.getText().toString().trim();
                 String password_login=password_login_parent.getText().toString().trim();
+                if(TextUtils.isEmpty(email_login)) {
+                    email_login_parent.setError("username is required");
+                    return;
+                }
+                if(TextUtils.isEmpty(password_login)) {
+                    password_login_parent.setError("password is required");
+                    return;
+                }
+                if(password_login.length()<6)
+                {
+                    password_login_parent.setError("the password must be more than 6 charaters");
+                    return;
+                }
                 fAuth.signInWithEmailAndPassword(email_login,password_login).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
