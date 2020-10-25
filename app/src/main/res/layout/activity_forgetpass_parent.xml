@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".forgetpass_teacher">
+    tools:context=".forgetpass_parent">
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -16,7 +16,7 @@
         tools:layout_editor_absoluteY="290dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/teacher_forget_email"
+            android:id="@+id/parent_forget_email"
             android:layout_width="match_parent"
             android:layout_height="59dp"
             android:layout_marginBottom="90sp"
@@ -40,7 +40,7 @@
         app:layout_constraintVertical_bias="0.202" />
 
     <Button
-        android:id="@+id/buttonforget_teacher"
+        android:id="@+id/buttonforget_parent"
         android:layout_width="366dp"
         android:layout_height="63dp"
         android:background="#090909"
@@ -51,7 +51,7 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/loginforget_t"
+        android:id="@+id/loginforget_p"
         android:layout_width="173dp"
         android:layout_height="26dp"
         android:text="<  Back to Login"

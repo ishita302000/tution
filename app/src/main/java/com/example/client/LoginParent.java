@@ -1,8 +1,5 @@
 package com.example.client;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -10,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -25,7 +25,6 @@ public class LoginParent extends AppCompatActivity {
      private TextView signupFor_parent;
     private TextInputEditText email_login_parent;
     private TextInputEditText password_login_parent;
-    private Button forgetPassword_parent;
     private TextView login_phnno_parent;
     private Button parent_login;
     private FirebaseAuth fAuth;
@@ -40,7 +39,7 @@ public class LoginParent extends AppCompatActivity {
         signupFor_parent=findViewById(R.id.slogan_name_parent);
         email_login_parent= findViewById(R.id.email_log_parent);
         password_login_parent=findViewById(R.id.password_log_parent);
-        forgetPassword_parent = findViewById(R.id.forgot_parent);
+        ForgetPassword_parent = findViewById(R.id.forgot_parent);
         login_phnno_parent=findViewById(R.id.newuser_parent);
         parent_login = findViewById(R.id.signin_parent);
         //loginphn = findViewById(R.id.phnno_log_teacher);
@@ -50,6 +49,14 @@ public class LoginParent extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 takeTosignupPageForteachers();
+            }
+        });
+        ForgetPassword_parent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(LoginParent.this , forgetpass_parent.class);
+                startActivity(i);
+                finish();
             }
         });
 
@@ -105,6 +112,13 @@ public class LoginParent extends AppCompatActivity {
                 Intent i = new Intent(LoginParent.this , phn_parent.class);
                 startActivity(i);
                 finish();
+            }
+        });
+        forgetPassword_parent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(LoginParent.this , forgetpass_parent.class);
+                startActivity(in);
             }
         });
     }
