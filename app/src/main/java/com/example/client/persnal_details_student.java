@@ -50,18 +50,27 @@ public class persnal_details_student extends AppCompatActivity {
         btn_student_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String age=age_s.getText().toString().trim();
+                String gender=gender_s.getText().toString().trim();
+                String birth=birth_s.getText().toString().trim();
+                String school_name=schoolname_s.getText().toString().trim();
+                String school_board=schoolboard_s.getText().toString().trim();
+                String classs=class_s.getText().toString().trim();
+                String percentage=percentage_s.getText().toString().trim();
+                String address=address_s.getText().toString().trim();
+                String blood_group=blood_s.getText().toString().trim();
                 userId_techer = fAuth.getCurrentUser().getUid();
                 DocumentReference documentReference = fstore.collection("users_persnal_details_student").document(userId_techer);
                 Map<String, Object> user = new HashMap<>();
-                user.put("age", age_s.getText().toString().trim());
-                user.put("gender", gender_s.getText().toString().trim());
-                user.put("birth", birth_s.getText().toString().trim());
-                user.put("school name", schoolname_s.getText().toString().trim());
-                user.put("school board", schoolboard_s.getText().toString().trim());
-                user.put("class", class_s.getText().toString().trim());
-                user.put("percentage ", percentage_s.getText().toString().trim());
-                user.put("address", address_s.getText().toString().trim());
-                user.put("blood group", blood_s.getText().toString().trim());
+                user.put("age", age);
+                user.put("gender", gender);
+                user.put("birth", birth);
+                user.put("school name", school_name);
+                user.put("school board",school_board );
+                user.put("class", classs);
+                user.put("percentage ",percentage );
+                user.put("address",address );
+                user.put("blood group",blood_group );
                 documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
