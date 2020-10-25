@@ -56,7 +56,7 @@ public class phn_teacher extends AppCompatActivity {
         reLogin_otp_not_generated.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(phn_teacher.this,form_teacher.class));
+                startActivity(new Intent(phn_teacher.this,phn_teacher.class));
             }
         });
 
@@ -86,6 +86,7 @@ public class phn_teacher extends AppCompatActivity {
                         btn_phn_login.setEnabled(false);
                         progressBar.setVisibility(View.VISIBLE);
                         verifyAuth(credential);
+                        startActivity(new Intent(phn_teacher.this,form_teacher.class));
                         // verificationInprogress=false;
                     }else{
                         mOTP_no.setError("valid otp is required");

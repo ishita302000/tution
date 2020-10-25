@@ -29,14 +29,14 @@ public class splash extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         image = (ImageView) findViewById(R.id.imageView);
         logo = findViewById(R.id.textView);
-        slogan = findViewById(R.id.textView2);
+        //slogan = findViewById(R.id.textView2);
 
          topAnim = AnimationUtils.loadAnimation(this, R.anim.top_animation);
          bottomAnim = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
 
         image.setAnimation(topAnim);
         logo.setAnimation(bottomAnim);
-        slogan.setAnimation(bottomAnim);
+        //slogan.setAnimation(bottomAnim);
 
         new Handler().postDelayed(new Runnable() {
             @Override

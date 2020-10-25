@@ -57,7 +57,7 @@ public class phn_student extends AppCompatActivity {
         reLogin_otp_not_generated.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(phn_student.this, photo_upload_student.class));
+                startActivity(new Intent(phn_student.this, phn_student.class));
 
             }
         });
@@ -88,6 +88,7 @@ public class phn_student extends AppCompatActivity {
                         btn_phn_login.setEnabled(false);
                         progressBar.setVisibility(View.VISIBLE);
                         verifyAuth(credential);
+                        startActivity(new Intent(phn_student.this,photo_upload_student.class));
                         // verificationInprogress=false;
                     }else{
                         mOTP_no.setError("valid otp is required");
@@ -186,7 +187,7 @@ public class phn_student extends AppCompatActivity {
                     reLogin_otp_not_generated.setVisibility(View.GONE);
                     Toast.makeText(phn_student.this,"wrong OTP entered",Toast.LENGTH_SHORT).show();
                     Toast.makeText(phn_student.this,"relogin with phone no",Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(phn_student.this,phn_teacher.class));
+                    startActivity(new Intent(phn_student.this,phn_student.class));
                 }
             }
         });

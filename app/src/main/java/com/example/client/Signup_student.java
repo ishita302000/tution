@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -12,12 +13,14 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.firestore.DocumentReference;
@@ -36,6 +39,13 @@ public class Signup_student extends AppCompatActivity {
     private EditText enterotp;
     String verificationid;
     Boolean verificationInprogress = false;
+    private FirebaseAuth fAuth2;
+    private FirebaseUser fUser;
+    private String userId_techer1;
+    private String userId_techer3;
+    private FirebaseAuth fAuth3;
+    private FirebaseUser fUser3;
+
     int u = 0;
     String userId1;
     String name_t;
@@ -58,7 +68,12 @@ public class Signup_student extends AppCompatActivity {
         student_regtoLoginBtn = findViewById(R.id.Login_text_sigin_student);
         enterotp = findViewById(R.id.sign_otp_student);
         fAuth = FirebaseAuth.getInstance();
+        fAuth2=FirebaseAuth.getInstance();
+        fAuth3=FirebaseAuth.getInstance();
+
         fstore = FirebaseFirestore.getInstance();
+        fUser=fAuth2.getCurrentUser();
+        fUser3=fAuth3.getCurrentUser();
 
         if (fAuth.getCurrentUser() != null) {
             startActivity(new Intent(getApplicationContext(), LoginTeacher.class));
@@ -76,10 +91,35 @@ public class Signup_student extends AppCompatActivity {
                     final String teacher_email = student_regEmail.getEditableText().toString();
                     final String teacher_phoneNo = student_phone.getEditableText().toString();
                     final String teacher_password = student_regpassword.getEditableText().toString();
+                    if((TextUtils.isEmpty(teacher_name))) {
+                        student_regName.setError("name is required");
+                        return;
+                    }
+                    if((TextUtils.isEmpty(teacher_password))) {
+                        student_regpassword.setError("password is required");
+                        return;
+                    }
+                    if((TextUtils.isEmpty(teacher_phoneNo))) {
+                        student_phone.setError("phone is required");
+                        return;
+                    }
+                    if(teacher_phoneNo.length()<10) {
+                        student_phone.setError("the no must be of 10 character");
+                        return;
+                    }
+                    if((TextUtils.isEmpty(teacher_email))) {
+                        student_regEmail.setError("email is required");
+                        return;
+                    }
+                    if(teacher_password.length()<6)
+                    {
+                        student_regpassword.setError("the password must be more than 6 charaters");
+                        return;
+                    }
                     name_t=teacher_name;
                     email_t= teacher_email;
                     phpne_t=teacher_phoneNo;
-
+                    student_regtoLoginBtn.setEnabled(false);
                     UserHelperClass_teacher helperClass_teacher = new UserHelperClass_teacher(teacher_name, teacher_email, teacher_phoneNo, teacher_password);
                     fAuth.createUserWithEmailAndPassword(teacher_email, teacher_password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
@@ -111,6 +151,7 @@ public class Signup_student extends AppCompatActivity {
                             } else {
                                 Toast.makeText(Signup_student.this, "Error !" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                 // mProgressBar2.setVisibility(View.GONE);u=
+                                startActivity(new Intent(Signup_student.this,MainActivity.class));
                                 u = 0;
                             }
                         }
@@ -127,6 +168,7 @@ public class Signup_student extends AppCompatActivity {
                         // verificationInprogress=false;
                     } else {
                         student_phone.setError("valid otp is required");
+                        student_regtoLoginBtn.setEnabled(true);
                     }
                 }
 
@@ -146,6 +188,13 @@ public class Signup_student extends AppCompatActivity {
                 token = forceResendingToken;
                 verificationInprogress = true;
                 enterotp.setVisibility(View.VISIBLE);
+                student_regtoLoginBtn.setEnabled(true);
+                student_regName.setVisibility(View.GONE);
+                student_regEmail.setVisibility(View.GONE);
+                student_phone.setVisibility(View.GONE);
+                student_regpassword.setVisibility(View.GONE);
+                student_regtoLoginBtn.setEnabled(true);
+
             }
 
             @Override
@@ -161,6 +210,46 @@ public class Signup_student extends AppCompatActivity {
             @Override
             public void onVerificationFailed(@NonNull FirebaseException e) {
                 Toast.makeText(Signup_student.this, "Cannot create account" + e.getMessage(), Toast.LENGTH_SHORT).show();
+
+                fAuth2.signInWithEmailAndPassword(student_regEmail .getEditableText().toString(),student_regpassword.getEditableText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            Toast.makeText(Signup_student.this,"Loggid in successfully",Toast.LENGTH_SHORT).show();
+
+                            userId_techer1 = fAuth2.getCurrentUser().getUid();
+                            FirebaseFirestore.getInstance().collection("usersStudent").document(userId_techer1).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Toast.makeText(Signup_student.this,"Deleted Successfuly",Toast.LENGTH_SHORT).show();
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(Signup_student.this,"Error",Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                            fUser=fAuth2.getCurrentUser();
+                            fUser.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if(task.isSuccessful()){
+                                        Toast.makeText(Signup_student.this,"noDeleted",Toast.LENGTH_SHORT).show();
+                                        FirebaseAuth.getInstance().signOut();
+                                    }
+                                    else{
+                                        Toast.makeText(Signup_student.this,"noDeleted not",Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                        }else{
+                            Toast.makeText(Signup_student.this,"Error !"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            //progressBar.setVisibility(View.GONE);
+                            //teacher_login.setEnabled(false);
+                        }
+                    }
+                });
 
 
             }
@@ -189,6 +278,47 @@ public class Signup_student extends AppCompatActivity {
                     });
                 } else {
                     Toast.makeText(Signup_student.this, "Authentication failed", Toast.LENGTH_SHORT).show();
+                    student_regtoLoginBtn.setEnabled(true);
+
+                    fAuth3.signInWithEmailAndPassword(student_regEmail .getEditableText().toString(),student_regpassword.getEditableText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(task.isSuccessful()){
+                                Toast.makeText(Signup_student.this,"Loggid in successfully",Toast.LENGTH_SHORT).show();
+
+                                userId_techer3 = fAuth3.getCurrentUser().getUid();
+                                FirebaseFirestore.getInstance().collection("usersStudent").document(userId_techer3).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+                                        Toast.makeText(Signup_student.this,"Deleted Successfuly",Toast.LENGTH_SHORT).show();
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Toast.makeText(Signup_student.this,"Error",Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                                fUser3=fAuth3.getCurrentUser();
+                                fUser3.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if(task.isSuccessful()){
+                                            Toast.makeText(Signup_student.this,"noDeleted",Toast.LENGTH_SHORT).show();
+                                            FirebaseAuth.getInstance().signOut();
+                                        }
+                                        else{
+                                            Toast.makeText(Signup_student.this,"noDeleted not",Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
+                                // startActivity(new Intent(getApplicationContext(),LoginTeacher.class));
+                            }else{
+                                Toast.makeText(Signup_student.this,"Error !"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                //progressBar.setVisibility(View.GONE);
+                                //teacher_login.setEnabled(false);
+                            }
+                        }
+                    });
                 }
             }
         });

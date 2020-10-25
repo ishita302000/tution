@@ -26,13 +26,15 @@ public class LoginStudent extends AppCompatActivity {
     private TextView signupFor_student;
     private TextInputEditText email_login_student;
     private TextInputEditText password_login_student;
-    private TextInputEditText loginphn;
+   //private TextInputEditText loginphn;
     private Button forgetPassword_student;
     private ProgressBar progressBar;
     private FirebaseAuth fAuth;
     private Button loign_btn;
     private FirebaseFirestore fstore;
     private Button ForgetPassword_student;
+    private Button login_phn;
+    //private ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +50,7 @@ public class LoginStudent extends AppCompatActivity {
         fstore=FirebaseFirestore.getInstance();
         //login_phnno_teacher=findViewById(R.id.phnno_log_student);
         //teacher_login = findViewById(R.id.login_teacher);
-        loginphn = findViewById(R.id.phnno_studet);
+        login_phn = findViewById(R.id.phnno_studet);
         fAuth=FirebaseAuth.getInstance();
         signupFor_student.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,20 +59,28 @@ public class LoginStudent extends AppCompatActivity {
                 takeTosignupPageForstudent();
             }
         });
+        login_phn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(LoginStudent.this , phn_student.class);
+                startActivity(i);
+                finish();
+            }
+        });
         forgetPassword_student.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             }
         });
-ForgetPassword_student.setOnClickListener(new View.OnClickListener() {
+/*ForgetPassword_student.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
         Intent i = new Intent(LoginStudent.this , phn_teacher.class);
         startActivity(i);
         finish();
     }
-});
+});*/
         loign_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
