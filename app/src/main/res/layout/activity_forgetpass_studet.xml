@@ -48,14 +48,17 @@
         android:background="#090909"
         android:text="Click on me!"
         android:textColor="#FFFFFF"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="390dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.56" />
 
     <TextView
         android:id="@+id/loginforget_s"
         android:layout_width="173dp"
         android:layout_height="26dp"
-        android:text="<  Back to Login"
+        android:text="Back to Login"
         android:textColor="#0E0E0E"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"

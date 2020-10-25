@@ -54,7 +54,7 @@
         android:id="@+id/loginforget_t"
         android:layout_width="173dp"
         android:layout_height="26dp"
-        android:text="<  Back to Login"
+        android:text="Back to Login"
         android:textColor="#0E0E0E"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"

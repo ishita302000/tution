@@ -114,13 +114,13 @@ public class LoginParent extends AppCompatActivity {
                 finish();
             }
         });
-        forgetPassword_parent.setOnClickListener(new View.OnClickListener() {
+        /*forgetPassword_parent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent in = new Intent(LoginParent.this , forgetpass_parent.class);
                 startActivity(in);
             }
-        });
+        });*/
     }
     //for going to signup activity
     private void takeTosignupPageForteachers(){
