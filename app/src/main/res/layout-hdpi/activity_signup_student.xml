@@ -67,16 +67,16 @@
             android:layout_marginBottom="242dp"
             android:hint="Phone no." />
 
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/sign_otp_student"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="377dp"
+            android:layout_marginBottom="270dp"
             android:hint="Enter OTP"
             android:visibility="invisible" />
-
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/signn_password_student"

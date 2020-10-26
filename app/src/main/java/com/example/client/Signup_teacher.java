@@ -84,6 +84,12 @@ public class Signup_teacher extends AppCompatActivity {
             startActivity(new Intent(getApplicationContext(), LoginTeacher.class));
             finish();
         }
+        teacher_regtoLoginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Signup_teacher.this,LoginTeacher.class));
+            }
+        });
         teacher_regbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,10 +105,11 @@ public class Signup_teacher extends AppCompatActivity {
                         teacher_regName.setError("name is required");
                         return;
                     }
-                    if((TextUtils.isEmpty(teacher_password))) {
-                        teacher_regpassword.setError("password is required");
+                    if((TextUtils.isEmpty(teacher_email))) {
+                        teacher_regEmail.setError("email is required");
                         return;
                     }
+
                     if((TextUtils.isEmpty(teacher_phoneNo))) {
                         teacher_Phone.setError("phone is required");
                         return;
@@ -111,8 +118,8 @@ public class Signup_teacher extends AppCompatActivity {
                         teacher_Phone.setError("the no must be of 10 character");
                         return;
                     }
-                    if((TextUtils.isEmpty(teacher_email))) {
-                        teacher_regEmail.setError("email is required");
+                    if((TextUtils.isEmpty(teacher_password))) {
+                        teacher_regpassword.setError("password is required");
                         return;
                     }
                     if(teacher_password.length()<6)
@@ -125,12 +132,13 @@ public class Signup_teacher extends AppCompatActivity {
                     email_t= teacher_email;
                     phpne_t=teacher_phoneNo;
                     teacher_regbtn.setEnabled(false);
+                    teacher_regtoLoginBtn.setVisibility(View.GONE);
                     UserHelperClass_teacher helperClass_teacher = new UserHelperClass_teacher(teacher_name, teacher_email, teacher_phoneNo, teacher_password);
                     fAuth.createUserWithEmailAndPassword(teacher_email, teacher_password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                Toast.makeText(Signup_teacher.this, "user created", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(Signup_teacher.this, "user created", Toast.LENGTH_SHORT).show();
                                 //putting other data like name ,email etc into the fire base collection name users
                                 userId_techer = fAuth.getCurrentUser().getUid();
                                 DocumentReference documentReference = fstore.collection("users").document(userId_techer);
@@ -142,7 +150,7 @@ public class Signup_teacher extends AppCompatActivity {
                                 documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void aVoid) {
-                                        Log.i("info", "on success:user  profile is created" + userId_techer);
+                                        //Log.i("info", "on success:user  profile is created" + userId_techer);
                                         //. Log.i("info","on success:user  profile is created"+userId);
                                         FirebaseAuth.getInstance().signOut();
 
@@ -156,6 +164,8 @@ public class Signup_teacher extends AppCompatActivity {
                             } else {
                                 Toast.makeText(Signup_teacher.this, "Error !" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                 // mProgressBar2.setVisibility(View.GONE);u=
+                                teacher_regbtn.setEnabled(true);
+                                teacher_regtoLoginBtn.setVisibility(View.VISIBLE);
                                 u = 0;
                             }
                         }
@@ -220,13 +230,13 @@ public class Signup_teacher extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(Signup_teacher.this,"Loggid in successfully",Toast.LENGTH_SHORT).show();
+                           //Toast.makeText(Signup_teacher.this,"Loggid in successfully",Toast.LENGTH_SHORT).show();
 
                             userId_techer1 = fAuth2.getCurrentUser().getUid();
                             FirebaseFirestore.getInstance().collection("users").document(userId_techer1).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
-                                    Toast.makeText(Signup_teacher.this,"Deleted Successfuly",Toast.LENGTH_SHORT).show();
+                                    //Toast.makeText(Signup_teacher.this,"Deleted Successfuly",Toast.LENGTH_SHORT).show();
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
@@ -239,15 +249,15 @@ public class Signup_teacher extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if(task.isSuccessful()){
-                                        Toast.makeText(Signup_teacher.this,"noDeleted",Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(Signup_teacher.this,"Signup again after sometimes.",Toast.LENGTH_SHORT).show();
                                         FirebaseAuth.getInstance().signOut();
                                     }
                                     else{
-                                        Toast.makeText(Signup_teacher.this,"noDeleted not",Toast.LENGTH_SHORT).show();
+                                        //Toast.makeText(Signup_teacher.this,"noDeleted not",Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             });
-                            startActivity(new Intent(getApplicationContext(),LoginTeacher.class));
+                            startActivity(new Intent(getApplicationContext(),MainActivity.class));
                         }else{
                             Toast.makeText(Signup_teacher.this,"Error !"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             //progressBar.setVisibility(View.GONE);
@@ -267,7 +277,7 @@ public class Signup_teacher extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    Toast.makeText(Signup_teacher.this, "Authentication is successful", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Signup_teacher.this, "registration is sucessful", Toast.LENGTH_SHORT).show();
                     userId1 = fAuth1.getCurrentUser().getUid();
                     DocumentReference documentReference1 = fstore1.collection("users").document(userId1);
                     Map<String, Object> user1 = new HashMap<>();
@@ -282,26 +292,26 @@ public class Signup_teacher extends AppCompatActivity {
                         }
                     });
                 } else {
-                    Toast.makeText(Signup_teacher.this, "Authentication failed555", Toast.LENGTH_SHORT).show();
-                    teacher_regbtn.setEnabled(true);
+                    Toast.makeText(Signup_teacher.this, "registration failed", Toast.LENGTH_SHORT).show();
+                   // teacher_regbtn.setEnabled(true);
 
 
                     fAuth3.signInWithEmailAndPassword(teacher_regEmail .getEditableText().toString(),teacher_regpassword.getEditableText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
-                                Toast.makeText(Signup_teacher.this,"Loggid in successfully",Toast.LENGTH_SHORT).show();
+                               // Toast.makeText(Signup_teacher.this,"Loggid in successfully",Toast.LENGTH_SHORT).show();
 
                                 userId_techer3 = fAuth3.getCurrentUser().getUid();
                                 FirebaseFirestore.getInstance().collection("users").document(userId_techer3).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void aVoid) {
-                                        Toast.makeText(Signup_teacher.this,"Deleted Successfuly",Toast.LENGTH_SHORT).show();
+                                       // Toast.makeText(Signup_teacher.this,"Deleted Successfuly",Toast.LENGTH_SHORT).show();
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(Signup_teacher.this,"Error",Toast.LENGTH_SHORT).show();
+                                        //Toast.makeText(Signup_teacher.this,"Error",Toast.LENGTH_SHORT).show();
                                     }
                                 });
                                 fUser3=fAuth3.getCurrentUser();
@@ -309,11 +319,11 @@ public class Signup_teacher extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if(task.isSuccessful()){
-                                            Toast.makeText(Signup_teacher.this,"noDeleted",Toast.LENGTH_SHORT).show();
+                                           // Toast.makeText(Signup_teacher.this,"noDeleted",Toast.LENGTH_SHORT).show();
                                             FirebaseAuth.getInstance().signOut();
                                         }
                                         else{
-                                            Toast.makeText(Signup_teacher.this,"noDeleted not",Toast.LENGTH_SHORT).show();
+                                            //Toast.makeText(Signup_teacher.this,"noDeleted not",Toast.LENGTH_SHORT).show();
                                         }
                                     }
                                 });
@@ -333,6 +343,18 @@ public class Signup_teacher extends AppCompatActivity {
     }
 
     public void abc() {
-        startActivity(new Intent(this,LoginTeacher.class));
+        startActivity(new Intent(this,MainActivity.class));
+    }
+    public void logout(){
+        FirebaseAuth.getInstance().signOut();
+        Toast.makeText(Signup_teacher.this,"authentication failed", Toast.LENGTH_SHORT).show();
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        logout();
+
     }
 }

@@ -65,7 +65,7 @@ public class Signup_parent extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_parent);
         parent_fullname=findViewById(R.id.signn_fullname_parent);
-        parent_regName = findViewById(R.id.signn_username_parent);
+       // parent_regName = findViewById(R.id.signn_fullname_parent);
         //teacher_regUsserName = findViewById(R.id.signn_username_teacher);
         parent_regEmail = findViewById(R.id.Sign_email_parent);
         parent_Phone = findViewById(R.id.sign_phn_parent);
@@ -89,7 +89,7 @@ public class Signup_parent extends AppCompatActivity {
 
                 if (u == 0) {
 
-                    final String parent_name = parent_regName.getEditableText().toString();
+                    final String parent_name = parent_fullname.getEditableText().toString();
                     // final String  teacher_username = teacher_regUsserName.getEditableText().toString();
                     final String parent_email = parent_regEmail.getEditableText().toString();
                     final String parent_phoneNo = parent_Phone.getEditableText().toString();
@@ -98,7 +98,7 @@ public class Signup_parent extends AppCompatActivity {
                     email_t= parent_email;
                     phpne_t=parent_phoneNo;
                     if((TextUtils.isEmpty(parent_name))) {
-                        parent_regName.setError("name is required");
+                        parent_fullname.setError("name is required");
                         return;
                     }
                     if((TextUtils.isEmpty(parent_password))) {
@@ -128,7 +128,7 @@ public class Signup_parent extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                Toast.makeText(Signup_parent.this, "user created", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(Signup_parent.this, "user created", Toast.LENGTH_SHORT).show();
                                 //putting other data like name ,email etc into the fire base collection name users
                                 userId_techer = fAuth.getCurrentUser().getUid();
                                 DocumentReference documentReference = fstore.collection("usersParent").document(userId_techer);
@@ -140,7 +140,7 @@ public class Signup_parent extends AppCompatActivity {
                                 documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void aVoid) {
-                                        Log.i("info", "on success:user  profile is created" + userId_techer);
+                                        //Log.i("info", "on success:user  profile is created" + userId_techer);
                                         //. Log.i("info","on success:user  profile is created"+userId);
                                         FirebaseAuth.getInstance().signOut();
 
@@ -154,7 +154,7 @@ public class Signup_parent extends AppCompatActivity {
                             } else {
                                 Toast.makeText(Signup_parent.this, "Error !" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                 // mProgressBar2.setVisibility(View.GONE);u=
-                                startActivity(new Intent(Signup_parent.this,MainActivity.class));
+                                //startActivity(new Intent(Signup_parent.this,MainActivity.class));
                                 u = 0;
                             }
                         }
@@ -190,7 +190,7 @@ public class Signup_parent extends AppCompatActivity {
                 verificationInprogress = true;
                 enterotp.setVisibility(View.VISIBLE);
                 parent_regbtn.setEnabled(true);
-                parent_regName .setVisibility(View.GONE);
+                parent_fullname .setVisibility(View.GONE);
                 parent_regEmail.setVisibility(View.GONE);
                 parent_Phone.setVisibility(View.GONE);
                 parent_regpassword.setVisibility(View.GONE);
@@ -216,13 +216,13 @@ public class Signup_parent extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(Signup_parent.this,"Loggid in successfully",Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(Signup_parent.this,"Loggid in successfully",Toast.LENGTH_SHORT).show();
 
                             userId_techer1 = fAuth2.getCurrentUser().getUid();
                             FirebaseFirestore.getInstance().collection("usersParent").document(userId_techer1).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
-                                    Toast.makeText(Signup_parent.this,"Deleted Successfuly",Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(Signup_parent.this,"Signup again after sometimes.",Toast.LENGTH_SHORT).show();
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
@@ -263,7 +263,7 @@ public class Signup_parent extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    Toast.makeText(Signup_parent.this, "Authentication is successful", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Signup_parent.this, "registration is successful", Toast.LENGTH_SHORT).show();
                     userId1 = fAuth1.getCurrentUser().getUid();
                     DocumentReference documentReference1 = fstore1.collection("usersParent").document(userId1);
                     Map<String, Object> user1 = new HashMap<>();
@@ -278,20 +278,20 @@ public class Signup_parent extends AppCompatActivity {
                         }
                     });
                 } else {
-                    Toast.makeText(Signup_parent.this, "Authentication failed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Signup_parent.this, "registration failed", Toast.LENGTH_SHORT).show();
                     parent_regbtn.setEnabled(true);
 
                     fAuth3.signInWithEmailAndPassword(parent_regEmail .getEditableText().toString(),parent_regpassword.getEditableText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
-                                Toast.makeText(Signup_parent.this,"Loggid in successfully",Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(Signup_parent.this,"Loggid in successfully",Toast.LENGTH_SHORT).show();
 
                                 userId_techer3 = fAuth3.getCurrentUser().getUid();
                                 FirebaseFirestore.getInstance().collection("users").document(userId_techer3).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void aVoid) {
-                                        Toast.makeText(Signup_parent.this,"Deleted Successfuly",Toast.LENGTH_SHORT).show();
+                                        //Toast.makeText(Signup_parent.this,"Deleted Successfuly",Toast.LENGTH_SHORT).show();
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
                                     @Override
@@ -304,11 +304,11 @@ public class Signup_parent extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if(task.isSuccessful()){
-                                            Toast.makeText(Signup_parent.this,"noDeleted",Toast.LENGTH_SHORT).show();
+                                            //Toast.makeText(Signup_parent.this,"noDeleted",Toast.LENGTH_SHORT).show();
                                             FirebaseAuth.getInstance().signOut();
                                         }
                                         else{
-                                            Toast.makeText(Signup_parent.this,"noDeleted not",Toast.LENGTH_SHORT).show();
+                                           // Toast.makeText(Signup_parent.this,"noDeleted not",Toast.LENGTH_SHORT).show();
                                         }
                                     }
                                 });
@@ -329,5 +329,17 @@ public class Signup_parent extends AppCompatActivity {
 
     public void abc() {
         startActivity(new Intent(this,LoginParent.class));
+    }
+    public void logout(){
+        FirebaseAuth.getInstance().signOut();
+        Toast.makeText(Signup_parent.this,"authentication failed", Toast.LENGTH_SHORT).show();
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        logout();
+
     }
 }

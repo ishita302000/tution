@@ -118,7 +118,7 @@ student_regbtn.setOnClickListener(new View.OnClickListener() {
                         return;
                     }
                     if((TextUtils.isEmpty(teacher_password))) {
-                        student_regEmail.setError("password is required");
+                        student_regpassword.setError("password is required");
                         return;
                     }
                     if(teacher_password.length()<6)
@@ -336,6 +336,18 @@ student_regbtn.setOnClickListener(new View.OnClickListener() {
 
     }
     public void abc() {
-        startActivity(new Intent(this,LoginStudent.class));
+        startActivity(new Intent(this,MainActivity.class));
+    }
+    public void logout(){
+        FirebaseAuth.getInstance().signOut();
+        Toast.makeText(Signup_student.this,"authentication failed", Toast.LENGTH_SHORT).show();
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        logout();
+
     }
 }

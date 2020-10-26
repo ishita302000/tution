@@ -138,6 +138,7 @@
             android:elevation="0dp"
             android:text="ALREADY HAVE AN ACCOUNT? LOGIN"
             android:textColor="#000" />
+
         <ProgressBar
             android:id="@+id/progressBar_teacher_signup"
             style="?android:attr/progressBarStyle"
