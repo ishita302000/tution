@@ -12,7 +12,7 @@
     <ImageView
         android:id="@+id/Sign_logo_image_student"
         android:layout_width="168dp"
-        android:layout_height="116dp"
+        android:layout_height="95dp"
         android:src="@drawable/rr"
         android:transitionName="logo_image" />
 
@@ -35,7 +35,7 @@
 
     <RelativeLayout
         android:layout_width="376dp"
-        android:layout_height="450dp"
+        android:layout_height="419dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="35dp"
         android:orientation="vertical">
@@ -44,36 +44,27 @@
             android:id="@+id/signn_fullname_student"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="64dp"
+            android:layout_height="55dp"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="369dp"
             android:hint="Full Name" />
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/signn_username_student"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="307dp"
-            android:hint="UserName" />
-
-        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/sign_email_student"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="64dp"
+            android:layout_height="55dp"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="240dp"
+            android:layout_marginBottom="312dp"
             android:hint="Email" />
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/signn_phn_student"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="64dp"
+            android:layout_height="55dp"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="175dp"
+            android:layout_marginBottom="242dp"
             android:hint="Phone no." />
 
         <com.google.android.material.textfield.TextInputEditText
@@ -86,26 +77,28 @@
             android:hint="Enter OTP"
             android:visibility="invisible" />
 
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/signn_password_student"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="64dp"
+            android:layout_height="55dp"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="115dp"
+            android:layout_marginBottom="174dp"
             android:hint="Password" />
-
 
         <Button
             android:id="@+id/Login_text_sigin_student"
             android:layout_width="match_parent"
-            android:layout_height="61dp"
+            android:layout_height="55dp"
             android:layout_alignParentBottom="true"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="112dp"
             android:background="#000"
+            android:paddingRight="53dp"
             android:text="SIGN UP"
-            android:textColor="#fff" />
+            android:textColor="#fff"
+            android:visibility="visible" />
 
         <Button
             android:id="@+id/sign_student_login"
@@ -117,17 +110,23 @@
             android:layout_gravity="right"
             android:layout_marginEnd="0dp"
             android:layout_marginRight="0dp"
-            android:layout_marginBottom="0dp"
+            android:layout_marginBottom="60dp"
             android:background="#00000000"
             android:elevation="0dp"
             android:text="ALREADY HAVE AN ACCOUNT? LOGIN"
+            android:paddingRight="53dp"
             android:textColor="#000" />
+
         <ProgressBar
             android:id="@+id/progressBar_student_signup"
             style="?android:attr/progressBarStyle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="invisible" />
+            android:layout_height="29dp"
+            android:layout_alignBottom="@+id/signn_fullname_student"
+            android:layout_marginBottom="-341dp"
+            android:paddingRight="53dp"
+            android:visibility="invisible"
+            />
 
     </RelativeLayout>
 
