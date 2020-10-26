@@ -11,15 +11,15 @@
 
     <ImageView
         android:id="@+id/logo_image_parent"
-        android:layout_width="184dp"
-        android:layout_height="134dp"
+        android:layout_width="163dp"
+        android:layout_height="117dp"
         android:src="@drawable/rr"
         android:transitionName="logo_image" />
 
     <TextView
         android:id="@+id/logo_name_parent"
         android:layout_width="370dp"
-        android:layout_height="98dp"
+        android:layout_height="100dp"
         android:fontFamily="sans-serif-black"
         android:text="Hello there, Welcome Back"
         android:textColor="#000"
@@ -44,34 +44,34 @@
             android:id="@+id/username_parent"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="71dp"
             android:hint="Username_teacher">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/email_log_parent"
                 android:layout_width="match_parent"
-                android:layout_height="47dp" />
+                android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/password_parent"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="71dp"
             android:hint="Password"
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/password_log_parent"
                 android:layout_width="match_parent"
-                android:layout_height="47dp"
+                android:layout_height="wrap_content"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/forgot_parent"
             android:layout_width="200dp"
-            android:layout_height="35dp"
+            android:layout_height="28dp"
             android:layout_gravity="right"
             android:layout_margin="5dp"
             android:background="#00000000"
@@ -91,7 +91,7 @@
         <Button
             android:id="@+id/newuser_parent"
             android:layout_width="match_parent"
-            android:layout_height="37dp"
+            android:layout_height="26dp"
             android:layout_gravity="right"
             android:layout_margin="5dp"
             android:background="#00000000"
@@ -99,8 +99,15 @@
             android:text="Login with phone no"
             android:textColor="#000" />
 
+        <ProgressBar
+            android:id="@+id/progressBar_parent_login"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="29dp"
+            android:visibility="invisible" />
     </LinearLayout>
-</LinearLayout>
+    </LinearLayout>
+
 
 
 

@@ -74,7 +74,7 @@ public class LoginTeacher extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(LoginTeacher.this,"Loggid in successfully",Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(LoginTeacher.this,"Loggid in successfully",Toast.LENGTH_SHORT).show();
                             DocumentReference documentReference = fstore.collection("users").document(fAuth.getCurrentUser().getUid());
                             documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                                 @Override
@@ -86,6 +86,8 @@ public class LoginTeacher extends AppCompatActivity {
                                         startActivity(new Intent(getApplicationContext(),form_teacher.class));
                                     }else{
                                         Toast.makeText(LoginTeacher.this,"invalid Id and password",Toast.LENGTH_SHORT).show();
+                                        progressBar.setVisibility(View.GONE);
+                                        teacher_login.setEnabled(true);
                                     }
                                 }
                             });
@@ -94,7 +96,7 @@ public class LoginTeacher extends AppCompatActivity {
                         }else{
                             Toast.makeText(LoginTeacher.this,"Error !"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             progressBar.setVisibility(View.GONE);
-                            teacher_login.setEnabled(false);
+                            teacher_login.setEnabled(true);
                         }
                     }
                 });
@@ -136,9 +138,8 @@ public class LoginTeacher extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        logout();
         super.onBackPressed();
-
+        logout();
 
     }
 }

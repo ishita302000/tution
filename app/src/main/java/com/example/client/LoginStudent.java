@@ -105,19 +105,19 @@ public class LoginStudent extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(
-                                    LoginStudent.this,"Loggid in successfully",Toast.LENGTH_SHORT).show();
+                           // Toast.makeText(
+                                 //   LoginStudent.this,"Loggid in successfully",Toast.LENGTH_SHORT).show();
                             DocumentReference documentReference = fstore.collection("users").document(fAuth.getCurrentUser().getUid());
                             documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                                 @Override
                                 public void onSuccess(DocumentSnapshot documentSnapshot) {
                                     if(documentSnapshot.exists()){
-                                        Toast.makeText(LoginStudent.this,"Loggid in successfully",Toast.LENGTH_SHORT).show();
-                                        progressBar.setVisibility(View.VISIBLE);
-                                        loign_btn.setEnabled(true);
+                                        Toast.makeText(LoginStudent.this,"Logged in successfully",Toast.LENGTH_SHORT).show();
                                         startActivity(new Intent(getApplicationContext(),form_teacher.class));
                                     }else{
                                         Toast.makeText(LoginStudent.this,"invalid Id and password",Toast.LENGTH_SHORT).show();
+                                        progressBar.setVisibility(View.GONE);
+                                        loign_btn.setEnabled(true);
                                     }
                                 }
                             });
@@ -137,5 +137,16 @@ public class LoginStudent extends AppCompatActivity {
     //for going to signup activity
     private void takeTosignupPageForstudent(){
         startActivity(new Intent(this,Signup_student.class));
+    }
+    public void logout(){
+        FirebaseAuth.getInstance().signOut();
+        finish();
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        logout();
+
+
     }
 }

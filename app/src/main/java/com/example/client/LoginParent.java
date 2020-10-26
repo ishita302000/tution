@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +32,7 @@ public class LoginParent extends AppCompatActivity {
     private FirebaseFirestore fstore;
     private  TextView loginphn;
     private Button ForgetPassword_parent;
+    private ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +44,7 @@ public class LoginParent extends AppCompatActivity {
         ForgetPassword_parent = findViewById(R.id.forgot_parent);
         login_phnno_parent=findViewById(R.id.newuser_parent);
         parent_login = findViewById(R.id.signin_parent);
+        progressBar=findViewById(R.id.progressBar_parent_login);
         //loginphn = findViewById(R.id.phnno_log_teacher);
         fAuth=FirebaseAuth.getInstance();
         fstore=FirebaseFirestore.getInstance();
@@ -79,6 +82,8 @@ public class LoginParent extends AppCompatActivity {
                     password_login_parent.setError("the password must be more than 6 charaters");
                     return;
                 }
+                progressBar.setVisibility(View.VISIBLE);
+                parent_login.setEnabled(false);
                 fAuth.signInWithEmailAndPassword(email_login,password_login).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -92,6 +97,8 @@ public class LoginParent extends AppCompatActivity {
                                         startActivity(new Intent(getApplicationContext(),form_parent.class));
                                     }else{
                                         Toast.makeText(LoginParent.this,"invalid Id and password",Toast.LENGTH_SHORT).show();
+                                        progressBar.setVisibility(View.GONE);
+                                        parent_login.setEnabled(true);
                                     }
                                 }
                             });
@@ -99,7 +106,8 @@ public class LoginParent extends AppCompatActivity {
                             //startActivity(new Intent(getApplicationContext(),form_teacher.class));
                         }else{
                             Toast.makeText(LoginParent.this,"Error !"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-
+                            progressBar.setVisibility(View.GONE);
+                            parent_login.setEnabled(true);
                         }
                     }
                 });
