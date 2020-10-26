@@ -126,7 +126,7 @@ public class LoginStudent extends AppCompatActivity {
                         }else{
                             Toast.makeText(LoginStudent.this,"Error !"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             progressBar.setVisibility(View.GONE);
-                            loign_btn.setEnabled(false);
+                            loign_btn.setEnabled(true);
                         }
                     }
                 });
