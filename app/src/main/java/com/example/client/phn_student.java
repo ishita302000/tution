@@ -146,10 +146,10 @@ public class phn_student extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if(task.isSuccessful()){
-                                    Toast.makeText(phn_student.this,"noDeleted",Toast.LENGTH_SHORT).show();
+                                    //Toast.makeText(phn_student.this,"noDeleted",Toast.LENGTH_SHORT).show();
                                 }
                                 else{
-                                    Toast.makeText(phn_student.this,"noDeleted not",Toast.LENGTH_SHORT).show();
+                                    //Toast.makeText(phn_student.this,"noDeleted not",Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
@@ -161,15 +161,16 @@ public class phn_student extends AppCompatActivity {
                                 if(documentSnapshot.exists()){
                                     progressBar.setVisibility(View.GONE);
                                     startActivity(new Intent(phn_student.this,form_teacher.class));
-                                    Toast.makeText(phn_student.this,"Authentication is successful123",Toast.LENGTH_SHORT).show();
+                                    //Toast.makeText(phn_student.this,"Authentication is successful123",Toast.LENGTH_SHORT).show();
                                 }
                                 else{
+                                    progressBar.setVisibility(View.GONE);
                                     Toast.makeText(phn_student.this,"userDoesnotExist",Toast.LENGTH_SHORT).show();
                                     fUser.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if(task.isSuccessful()){
-                                                Toast.makeText(phn_student.this,"noDeleted",Toast.LENGTH_SHORT).show();
+                                                //Toast.makeText(phn_student.this,"noDeleted",Toast.LENGTH_SHORT).show();
                                                 FirebaseAuth.getInstance().signOut();
                                             }
                                             else{

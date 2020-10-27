@@ -10,14 +10,14 @@
     android:padding="20dp">
 
     <ImageView
-        android:id="@+id/Sign_logo_image_teacher"
+        android:id="@+id/Sign_logo_image_student"
         android:layout_width="168dp"
         android:layout_height="95dp"
         android:src="@drawable/rr"
         android:transitionName="logo_image" />
 
     <TextView
-        android:id="@+id/Sign_logo_name_teacher"
+        android:id="@+id/Sign_logo_name_parent"
         android:layout_width="215dp"
         android:layout_height="54dp"
         android:fontFamily="sans-serif-black"
@@ -27,7 +27,7 @@
         android:transitionName="logo_text" />
 
     <TextView
-        android:id="@+id/Sign_logan_name_teacher"
+        android:id="@+id/Sign_logan_name_parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Let's SignUp your Account "
@@ -37,7 +37,7 @@
         android:layout_width="376dp"
         android:layout_height="419dp"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="35dp"
+        android:layout_marginBottom="0dp"
         android:orientation="vertical">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -74,7 +74,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="289dp"
+            android:layout_marginBottom="314dp"
             android:hint="Enter OTP"
             android:visibility="invisible" />
 
@@ -97,8 +97,7 @@
             android:background="#000"
             android:paddingRight="53dp"
             android:text="SIGN UP"
-            android:textColor="#fff"
-            android:visibility="visible" />
+            android:textColor="#fff" />
 
         <Button
             android:id="@+id/login_text_sigin_parent"
@@ -110,39 +109,23 @@
             android:layout_gravity="right"
             android:layout_marginEnd="0dp"
             android:layout_marginRight="0dp"
-            android:layout_marginBottom="61dp"
+            android:layout_marginBottom="60dp"
             android:background="#00000000"
             android:elevation="0dp"
             android:paddingRight="53dp"
             android:text="ALREADY HAVE AN ACCOUNT? LOGIN"
             android:textColor="#000" />
 
-        <ProgressBar
-            android:id="@+id/progressBar_parent_signup"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="match_parent"
-            android:layout_height="29dp"
-            android:layout_alignBottom="@+id/signn_fullname_student"
-            android:layout_marginBottom="-341dp"
-            android:paddingRight="53dp"
-            android:visibility="invisible" />
-
-        <Button
-            android:id="@+id/signup_teacher_phoneNO"
-            android:layout_width="match_parent"
-            android:layout_height="61dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="-4dp"
-            android:layout_marginRight="-4dp"
-            android:layout_marginBottom="232dp"
-            android:background="#000"
-            android:text="OTP ENTERED"
-            android:textColor="#fff"
-            android:visibility="invisible" />
     </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar_parent_signup"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="913dp"
+        android:layout_height="25dp"
+        android:layout_marginBottom="362dp"
+        android:paddingRight="530dp"
+        android:visibility="visible" />
 
 
 </LinearLayout>

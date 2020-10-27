@@ -35,9 +35,9 @@
 
     <RelativeLayout
         android:layout_width="376dp"
-        android:layout_height="450dp"
+        android:layout_height="421dp"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="35dp"
+        android:layout_marginBottom="0dp"
         android:orientation="vertical">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -114,16 +114,15 @@
             android:text="ALREADY HAVE AN ACCOUNT? LOGIN"
             android:textColor="#000" />
 
-        <ProgressBar
-            android:id="@+id/progressBar_parent_signup"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/signn_fullname_student"
-            android:layout_marginBottom="-362dp"
-            android:visibility="invisible" />
-
     </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar_parent_signup"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="29dp"
+        android:layout_marginBottom="362dp"
+        android:visibility="invisible" />
 
 
 </LinearLayout>

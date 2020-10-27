@@ -73,6 +73,7 @@ public class phn_parent extends AppCompatActivity {
                         mPhone_no.setError("the no must be of 10 character");
                         return;
                     }
+                    progressBar.setVisibility(View.VISIBLE);
                     //final String otp = mOTP_no.getText().toString().trim();
                     String phonrnumber = "+91" + phone;
                     requestOTP(phonrnumber);
@@ -139,7 +140,7 @@ public class phn_parent extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if(task.isSuccessful()){
-                                    Toast.makeText(phn_parent.this,"noDeleted",Toast.LENGTH_SHORT).show();
+                                    //Toast.makeText(phn_parent.this,"noDeleted",Toast.LENGTH_SHORT).show();
                                 }
                                 else{
                                     Toast.makeText(phn_parent.this,"noDeleted not",Toast.LENGTH_SHORT).show();
@@ -154,7 +155,7 @@ public class phn_parent extends AppCompatActivity {
                                 if(documentSnapshot.exists()){
                                     progressBar.setVisibility(View.GONE);
                                     startActivity(new Intent(phn_parent.this,form_parent.class));
-                                    Toast.makeText(phn_parent.this,"Authentication is successful123",Toast.LENGTH_SHORT).show();
+                                    //Toast.makeText(phn_parent.this,"Authentication is successful123",Toast.LENGTH_SHORT).show();
                                 }
                                 else{
                                     Toast.makeText(phn_parent.this,"userDoesnotExist",Toast.LENGTH_SHORT).show();
@@ -162,7 +163,7 @@ public class phn_parent extends AppCompatActivity {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if(task.isSuccessful()){
-                                                Toast.makeText(phn_parent.this,"noDeleted",Toast.LENGTH_SHORT).show();
+                                                //Toast.makeText(phn_parent.this,"noDeleted",Toast.LENGTH_SHORT).show();
                                                 FirebaseAuth.getInstance().signOut();
                                             }
                                             else{
