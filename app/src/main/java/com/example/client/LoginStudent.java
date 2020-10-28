@@ -113,7 +113,7 @@ public class LoginStudent extends AppCompatActivity {
                                 public void onSuccess(DocumentSnapshot documentSnapshot) {
                                     if(documentSnapshot.exists()){
                                         Toast.makeText(LoginStudent.this,"Logged in successfully",Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(getApplicationContext(),form_teacher.class));
+                                        startActivity(new Intent(getApplicationContext(),photo_upload_student.class));
                                     }else{
                                         Toast.makeText(LoginStudent.this,"invalid Id and password",Toast.LENGTH_SHORT).show();
                                         progressBar.setVisibility(View.GONE);
